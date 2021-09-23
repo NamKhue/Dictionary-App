@@ -2,12 +2,25 @@ package app.dictionary.base;
 
 public class DictionaryCommandline {
     public static void showAllWords() {
-        String listWords = "No" + "\t" + "|English" + "\t\t" + "|Vietnamese" + "\n";
+        StringBuilder result = new StringBuilder();
+        result.append("NO   | English        | Vietnamese").append("\n");
+
+        int maxSpaceBetween = 20;
+
         for (int i = 0; i < Dictionary.getDictionary().size(); i++) {
-            listWords += (i + 1) + "\t| " + Dictionary.getDictionary().get(i).getWord_target()
-                    + "\t\t\t" + "| " + Dictionary.getDictionary().get(i).getWord_explain() + "\n";
+            result.append(i + 1).append("    | ");
+
+            result.append(Dictionary.getDictionary().get(i).getWord_target());
+            int currentLength = Dictionary.getDictionary().get(i).getWord_target().length();
+            for (int j = currentLength; j < maxSpaceBetween; j++) {
+                result.append(" ");
+            }
+            result.append(" | ");
+
+            result.append(Dictionary.getDictionary().get(i).getWord_explain());
+            result.append("\n");
         }
-        System.out.println(listWords);
+        System.out.println(result);
     }
 
     public static void dictionaryBasic() {
