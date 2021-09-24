@@ -24,7 +24,13 @@ public class DictionaryCommandline {
     }
 
     public static void dictionaryBasic() {
-        DictionaryManagement.insertFromCommandLine();
+        DictionaryManagement.insertFromFile();
         showAllWords();
+    }
+
+    public static void dictionaryAdvanced() {
+        DictionaryManagement.insertFromFile();
+        DictionaryCommandline.showAllWords();
+        DictionaryManagement.dictionaryLookup();
     }
 }
