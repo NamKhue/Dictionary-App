@@ -58,8 +58,8 @@ public class DictionaryManagement {
         System.out.println("What is the word that you want to look up?");
         String wordLookUp = scanner_.nextLine();
         wordLookUp.trim().toLowerCase();
-        Dictionary test = new Dictionary();
-        Word hasWord = test.binarySearch(wordLookUp, 0, Dictionary.getSize() - 1);
+        Dictionary useForBinarySearch = new Dictionary();
+        Word hasWord = useForBinarySearch.binarySearch(wordLookUp, 0, Dictionary.getSize() - 1);
         if (hasWord == null) {
             System.out.println("This word is not in the dictionary");
         } else {
