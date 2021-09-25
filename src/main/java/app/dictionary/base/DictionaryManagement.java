@@ -45,8 +45,9 @@ public class DictionaryManagement {
             while ((line = reader.readLine()) != null) {
                 line = line.trim().toLowerCase();
                 String[] separated_line = line.split("\t");
-                Dictionary.push(new Word(separated_line[0], separated_line[1]));
+                Dictionary.getDictionary().add(new Word(separated_line[0], separated_line[1]));
             }
+            Dictionary.sortDir();
             reader.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -58,8 +59,8 @@ public class DictionaryManagement {
         System.out.println("What is the word that you want to look up?");
         String wordLookUp = scanner_.nextLine();
         wordLookUp.trim().toLowerCase();
-        Dictionary useForBinarySearch = new Dictionary();
-        Word hasWord = useForBinarySearch.binarySearch(wordLookUp, 0, Dictionary.getSize() - 1);
+        Dictionary usingForBinarySearch = new Dictionary();
+        Word hasWord = usingForBinarySearch.binarySearch(wordLookUp, 0, Dictionary.getSize() - 1);
         if (hasWord == null) {
             System.out.println("This word is not in the dictionary");
         } else {

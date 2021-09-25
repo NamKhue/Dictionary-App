@@ -1,6 +1,8 @@
 package app.dictionary.base;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Dictionary {
     private static ArrayList<Word> dictionary = new ArrayList<>();
@@ -41,7 +43,16 @@ public class Dictionary {
         return searchIndexToInsert(mid + 1, end, word_add);
     }
 
-    public  Word binarySearch(String wordToSearch, int l, int r) {
+    public static void sortDir() {
+        Collections.sort(dictionary, new Comparator<Word>() {
+            @Override
+            public int compare(Word o1, Word o2) {
+                return o1.getWord_target().compareTo(o2.getWord_target());
+            }
+        });
+    }
+
+    public Word binarySearch(String wordToSearch, int l, int r) {
         if (r < l) return null;
         int mid = l + (r - l) / 2;
         Word word = dictionary.get(mid);
