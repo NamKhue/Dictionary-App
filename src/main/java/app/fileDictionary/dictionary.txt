@@ -1,0 +1,6 @@
+hello	xin chao
+goodbye	tam biet
+love	tinh yeu
+apple	qua tao
+bus	xe bus
+cat	meo
