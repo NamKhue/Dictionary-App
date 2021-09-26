@@ -1,6 +1,6 @@
 package app.dictionary.base;
 
-public class Word {
+public class Word implements Comparable<Word> {
 
     private String word_target;
     private String word_explain;
@@ -55,6 +55,11 @@ public class Word {
     @Override
     public String toString() {
         return " " + this.word_target + " |= " + this.word_explain;
+    }
+
+    @Override
+    public int compareTo(Word o) {
+        return this.word_target.compareTo(o.getWord_target());
     }
 }
 

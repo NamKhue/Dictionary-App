@@ -1,83 +1,70 @@
 package app.dictionary.base;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.util.Objects;
+import java.io.*;
 import java.util.Scanner;
 
 public class DictionaryManagement {
-    /**
-     * insertFromFile().
-     */
+    public static Scanner scanner = new Scanner(System.in);
+
+    public static void insertFromCommandLine() {
+        boolean t = false;
+        int numberOfElem = 0;
+        //To enter the number of elements
+        do {
+            System.out.println("Enter the number of words you want to add: ");
+            if (scanner.hasNextInt()) {
+                numberOfElem = scanner.nextInt();
+                if (numberOfElem > 0) {
+                    t = true;
+                } else {
+                    t = false;
+                    System.out.println("Input error, re-enter: ");
+                }
+            } else {
+                System.out.println("Input error, re-enter: ");
+                scanner.nextLine();
+            }
+        } while (!t);
+        scanner.nextLine();
+        for (int i = 0; i < numberOfElem; i++) {
+            System.out.println((i + 1) + ": ");
+            System.out.println("In English: ");
+            String word_target = scanner.nextLine();
+            System.out.println("In Vietnamese: ");
+            String word_explain = scanner.nextLine();
+            Dictionary.push(new Word(word_target, word_explain));
+        }
+    }
+
     public static void insertFromFile() {
         try {
-            File inFile = new File("src/main/java/data/dictionaries.txt");
-            FileReader fileReader = new FileReader(inFile);
+            FileReader fileReader = new FileReader(new File("src/main/java/app/fileDictionary/dictionary.txt"));
             BufferedReader reader = new BufferedReader(fileReader);
 
             String line = null;
-
             while ((line = reader.readLine()) != null) {
-                String[] word = line.split("\\s\\s+");
-                String word_target = word[0].trim();
-                String word_explain = word[1].trim();
-                Dictionary.push(new Word(word_target, word_explain));
+                line = line.trim().toLowerCase();
+                String[] separated_line = line.split("\t");
+                Dictionary.getDictionary().add(new Word(separated_line[0], separated_line[1]));
             }
+            Dictionary.sortDir();
             reader.close();
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    /**
-     * dictionaryLookup().
-     */
     public static void dictionaryLookup() {
-        Scanner scanner = new Scanner(System.in);
-        String wantSearchMore = "y";
-
-        while (Objects.equals(wantSearchMore, "y")) {
-            System.out.println("Please fill in with a word: ");
-            String wordSearch = scanner.nextLine();
-
-            StringBuilder result = new StringBuilder();
-            int check = 0;
-            int countWordSearch = 0;
-
-            for (int i = 0; i < Dictionary.getDictionary().size(); i++) {
-                String wordTarget = Dictionary.getDictionary().get(i).getWord_target();
-                if (wordTarget.contains(wordSearch)) {
-                    if (check == 0) {
-                        result.append("Found following word(s):\n\n");
-                        result.append("NO   | English        | Vietnamese").append("\n");
-                    }
-                    result.append(countWordSearch + 1).append("    | ");
-                    result.append(Dictionary.getDictionary().get(i).getWord_target());
-
-                    int currentLength = Dictionary.getDictionary().get(i).getWord_target().length();
-                    int maxSpaceBetween = 14;
-
-                    for (int j = currentLength; j < maxSpaceBetween; j++) {
-                        result.append(" ");
-                    }
-                    result.append(" | ");
-
-                    result.append(Dictionary.getDictionary().get(i).getWord_explain());
-                    result.append("\n");
-                    ++check;
-                    ++countWordSearch;
-                }
-            }
-            if (check < 1) {
-                System.out.println("Can't find your word!");
-            } else {
-                System.out.println(result);
-            }
-
-            System.out.print("Do you want to search another word (y/n) ?  ");
-            wantSearchMore = scanner.nextLine();
+        Scanner scanner_ = new Scanner(System.in);
+        System.out.println("What is the word that you want to look up?");
+        String wordLookUp = scanner_.nextLine();
+        wordLookUp.trim().toLowerCase();
+        Dictionary usingForBinarySearch = new Dictionary();
+        Word hasWord = usingForBinarySearch.binarySearch(wordLookUp, 0, Dictionary.getSize() - 1);
+        if (hasWord == null) {
+            System.out.println("This word is not in the dictionary");
+        } else {
+            System.out.println(hasWord.getWord_target() + " means: " + hasWord.getWord_explain());
         }
     }
 }
-

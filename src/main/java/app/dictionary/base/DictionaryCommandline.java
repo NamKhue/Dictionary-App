@@ -1,14 +1,11 @@
 package app.dictionary.base;
 
 public class DictionaryCommandline {
-    /**
-     * showAllWords().
-     */
     public static void showAllWords() {
         StringBuilder result = new StringBuilder();
         result.append("NO   | English        | Vietnamese").append("\n");
 
-        int maxSpaceBetween = 14;
+        int maxSpaceBetween = 20;
 
         for (int i = 0; i < Dictionary.getDictionary().size(); i++) {
             result.append(i + 1).append("    | ");
@@ -26,12 +23,14 @@ public class DictionaryCommandline {
         System.out.println(result);
     }
 
-    /**
-     * dictionaryAdvanced().
-     */
-    public static void dictionaryAdvanced() {
+    public static void dictionaryBasic() {
         DictionaryManagement.insertFromFile();
         showAllWords();
+    }
+
+    public static void dictionaryAdvanced() {
+        DictionaryManagement.insertFromFile();
+        DictionaryCommandline.showAllWords();
         DictionaryManagement.dictionaryLookup();
     }
 }
