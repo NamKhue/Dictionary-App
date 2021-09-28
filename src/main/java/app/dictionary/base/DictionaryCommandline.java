@@ -40,12 +40,12 @@ public class DictionaryCommandline {
             int limitedRelatedWords = 6;
             int left =1;
             int right = 1;
-            while(limitedRelatedWords>0&&(Dictionary.getDictionary().get(posHint-left).getWord_target()).substring(0,subWord.length()).compareTo(subWord)==0){
+            while(Dictionary.getDictionary().get(posHint-left).getWord_target().length()>=subWord.length()&&limitedRelatedWords>0&&(Dictionary.getDictionary().get(posHint-left).getWord_target()).substring(0,subWord.length()).compareTo(subWord)==0){
                 System.out.println(Dictionary.getDictionary().get(posHint-left).getWord_target());
                 limitedRelatedWords--;
                 left++;
             }
-            while(limitedRelatedWords>0&&(Dictionary.getDictionary().get(posHint+right).getWord_target()).substring(0,subWord.length()).compareTo(subWord)==0){
+            while(Dictionary.getDictionary().get(posHint+right).getWord_target().length()>=subWord.length()&&limitedRelatedWords>0&&(Dictionary.getDictionary().get(posHint+right).getWord_target()).substring(0,subWord.length()).compareTo(subWord)==0){
                 System.out.println(Dictionary.getDictionary().get(posHint+right).getWord_target());
                 limitedRelatedWords--;
                 right++;
