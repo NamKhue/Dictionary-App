@@ -7,5 +7,12 @@ goodby3e	tạm biệty
 goodby4e	tạm biệt
 goodbye	tạm biệt
 goodbyee	tạm biệtr
+goodbyeez	tạm biệtrz
 hello	xin chào
 love	tình yêu
+train	tàu
+traint	tàut
+trainw	tàuư
+trainx	tàux
+trainy	tàuy
+trainz	tàuz
