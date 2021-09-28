@@ -32,6 +32,8 @@ public class Word implements Comparable<Word> {
         this.word_explain = word_explain;
     }
 
+
+
     @Override
     public String toString() {
         return " " + this.word_target + " |= " + this.word_explain;

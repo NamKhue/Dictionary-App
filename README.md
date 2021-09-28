@@ -1,7 +1,7 @@
 ## Our target:
 
-### 1. Basic version - Zero version
-### 2. Upgrade version 1.0
+### 1. Basic version - Zero version -> Done
+### 2. Upgrade version 1.0 -> Done
 
 ### 3. Upgrade version 2.0
 
