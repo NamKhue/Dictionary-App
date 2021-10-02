@@ -1,7 +1,6 @@
 package app.dictionary.base;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 
 public class Dictionary {
@@ -32,7 +31,7 @@ public class Dictionary {
 
     //The function is used to compare and
     // find the appropriate position to insert words in sorted order
-    private static int searchIndexToInsert(int st, int end, Word word_add) {
+    public static int searchIndexToInsert(int st, int end, Word word_add) {
         if (end < st) return st;
         int mid = st + (end - st) / 2;
         if (mid == dictionary.size()) return mid;
@@ -44,12 +43,7 @@ public class Dictionary {
     }
 
     public static void sortDir() {
-        Collections.sort(dictionary, new Comparator<Word>() {
-            @Override
-            public int compare(Word o1, Word o2) {
-                return o1.getWord_target().compareTo(o2.getWord_target());
-            }
-        });
+        dictionary.sort(Comparator.comparing(Word::getWord_target));
     }
 
     public Word binarySearch(String wordToSearch, int l, int r) {

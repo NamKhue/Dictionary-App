@@ -1,6 +1,15 @@
-hello	xin chao
-goodbye	tam biet
-love	tinh yeu
 apple	qua tao
 bus	xe bus
+bye	xin chào
+cancer	ung thư
 cat	meo
+goodbye	tam biet
+hello	xin chao
+love	bát bún riêu
+mouse	chuột
+out	ra
+transform	biến đổi
+transit	quá cảnh
+translate	phiên dịch
+transport	vận chuyển
+zebra	ngựa vằn
