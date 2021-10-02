@@ -28,7 +28,10 @@
             </Lighting>
          </effect>
         </Label>
-        <TextArea fx:id="wordTargetArea" layoutX="130.0" layoutY="112.0" prefHeight="184.0" prefWidth="1030.0" wrapText="true" />
+        <TextArea fx:id="wordTargetArea" layoutX="130.0" layoutY="112.0" prefHeight="184.0" prefWidth="1030.0" wrapText="true">
+         <font>
+            <Font size="20.0" />
+         </font></TextArea>
         <Button fx:id="translateButton" layoutX="497.0" layoutY="345.0" mnemonicParsing="false" onAction="#translate" prefHeight="60.0" prefWidth="270.0" text="Translate" textFill="#182a39">
          <font>
             <Font name="Calibri" size="18.0" />
@@ -44,7 +47,10 @@
                </light>
             </Lighting>
          </effect></Button>
-        <TextArea fx:id="wordExplainArea" editable="false" layoutX="125.0" layoutY="460.0" prefHeight="184.0" prefWidth="1039.0" wrapText="true" />
+        <TextArea fx:id="wordExplainArea" editable="false" layoutX="125.0" layoutY="460.0" prefHeight="184.0" prefWidth="1039.0" wrapText="true">
+         <font>
+            <Font size="20.0" />
+         </font></TextArea>
         <Label layoutX="16.0" layoutY="462.0" prefHeight="184.0" prefWidth="111.0" text="Explain: " textFill="#3e6cb2">
             <font>
                 <Font name="System Bold" size="28.0" />

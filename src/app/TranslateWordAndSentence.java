@@ -15,9 +15,9 @@ public class TranslateWordAndSentence {
   @FXML private Button translateButton;
 
   @FXML
-  public void translate(ActionEvent actionEvent) {
+  public void translate(ActionEvent actionEvent) throws Exception {
     String wordTarget = wordTargetArea.getText().toLowerCase().trim();
-    wordExplainArea.setText(Translator.oxfordSearch(wordTarget));
+    wordExplainArea.setText(GoogleTranslate.googleTranslate(wordTarget));
   }
 
   public Button getComeback() {
