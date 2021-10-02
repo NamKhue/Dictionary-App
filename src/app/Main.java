@@ -20,7 +20,6 @@ public class Main extends Application {
   Scene scene2, scene1;
 
   public static void main(String[] args) {
-    DictionaryManagement.insertFromFile();
     launch(args);
   }
 
@@ -39,7 +38,11 @@ public class Main extends Application {
     Button buttonSwitchToMainWindow = controllerTranslate.getComeback();
     scene2 = new Scene(subroot, 1280, 720);
     scene1 = new Scene(root, 1280, 720);
-    primaryStage.getIcons().add(new Image("https://img2.storyblok.com/400x0/filters:quality(80)/f/90801/960x1152/c77ba505ac/oxford-university-logo.png"));
+    primaryStage
+        .getIcons()
+        .add(
+            new Image(
+                "https://img2.storyblok.com/400x0/filters:quality(80)/f/90801/960x1152/c77ba505ac/oxford-university-logo.png"));
     primaryStage.setResizable(false);
     buttonSwitchToTranslate.setOnAction(
         event -> {
