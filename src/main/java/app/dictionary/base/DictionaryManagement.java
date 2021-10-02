@@ -1,6 +1,8 @@
 package app.dictionary.base;
 
 import java.io.*;
+import java.util.Collections;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class DictionaryManagement {
@@ -32,7 +34,7 @@ public class DictionaryManagement {
             String word_target = scanner.nextLine();
             System.out.println("In Vietnamese: ");
             String word_explain = scanner.nextLine();
-            Dictionary.push(new Word(word_target, word_explain));
+            addWord(new Word(word_target, word_explain));
         }
     }
 
@@ -59,12 +61,44 @@ public class DictionaryManagement {
         System.out.println("What is the word that you want to look up?");
         String wordLookUp = scanner_.nextLine();
         wordLookUp.trim().toLowerCase();
-        Dictionary usingForBinarySearch = new Dictionary();
-        Word hasWord = usingForBinarySearch.binarySearch(wordLookUp, 0, Dictionary.getSize() - 1);
+        Word hasWord = Dictionary.binarySearch(wordLookUp, 0, Dictionary.getSize() - 1);
         if (hasWord == null) {
             System.out.println("This word is not in the dictionary");
         } else {
             System.out.println(hasWord.getWord_target() + " means: " + hasWord.getWord_explain());
         }
+    }
+
+    public static void dictionaryExportToFile() {
+        try {
+            BufferedWriter writerFile = new BufferedWriter(new FileWriter("src/main/java/app/fileDictionary/dictionary.txt"));
+            for (int i = 0; i < Dictionary.getDictionary().size(); i++) {
+                writerFile.write(Dictionary.getDictionary().get(i).getWord_target().trim()+"\t"+Dictionary.getDictionary().get(i).getWord_explain().trim()+"\n");
+            }
+            writerFile.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void addWord(Word word) {
+        int indexToAdd = Dictionary.searchIndexToInsert(0, Dictionary.getDictionary().size() - 1, word);
+        if (indexToAdd >= 0 && indexToAdd <= Dictionary.getDictionary().size()) {
+            Dictionary.getDictionary().add(indexToAdd, word);
+        }
+    }
+
+    public static void removeWord(int position) {
+        if (Dictionary.getDictionary().size() > 0) {
+            Dictionary.getDictionary().remove(position);
+        } else {
+            System.out.println("The Dictionary is empty!");
+        }
+    }
+
+    public static void fixWord(Word word,String new_target,String new_explain){
+        int pos = Collections.binarySearch(Dictionary.getDictionary(),word);
+        Dictionary.getDictionary().get(pos).setWord_target(new_target);
+        Dictionary.getDictionary().get(pos).setWord_explain(new_explain);
     }
 }
