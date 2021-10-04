@@ -9,3 +9,36 @@
     -fx-border-radius: 10px;
     -fx-background-radius: 10px;
 }
+
+/**
+This work remove border of text area
+ */
+#itemDetailsTextArea {
+    -fx-background-insets: 0;
+    -fx-background-color: transparent, white, transparent, white;
+}
+
+#itemDetailsTextArea .content {
+    -fx-background-color: transparent, white, transparent, white;
+    -fx-padding: 10px;
+    -fx-text-fill: gray;
+    -fx-highlight-fill: #7ecfff;
+
+}
+
+#itemDetailsTextArea:focused .content {
+    -fx-background-color: transparent, white, transparent, white;
+}
+
+#itemDetailsTextArea:focused {
+    -fx-highlight-fill: #7ecfff;
+}
+
+/**
+ */
+#speech {
+    -fx-cursor: hand;
+    -fx-border-radius: 50%;
+    -fx-padding: 10px;
+    -fx-background-radius: 50%;
+}

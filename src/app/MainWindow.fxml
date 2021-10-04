@@ -9,12 +9,24 @@
 
 <BorderPane fx:id="mainBorderPane" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.MainWindowController">
     <center>
-        <VBox style="-fx-background-color: white">
-            <TextArea fx:id="itemDetailsTextArea" editable="false" wrapText="true" VBox.vgrow="ALWAYS">
-            <font>
-               <Font size="20.0" />
-            </font></TextArea>
-        </VBox>
+        <Pane style="-fx-background-color: white">
+            <TextArea fx:id="itemDetailsTextArea" editable="false" wrapText="true">
+                <font>
+                    <Font size="20.0" />
+                </font>
+            </TextArea>
+            <Button fx:id="speech" accessibleRole="IMAGE_VIEW" layoutX="652.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#speechEnglish">
+                <graphic>
+                    <ImageView fitHeight="30.0" fitWidth="30.0">
+                        <image>
+                            <Image url="@ImageIcon/speaker-filled-audio-tool.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+
+        </Pane>
+
     </center>
     <left>
         <GridPane BorderPane.alignment="CENTER">
@@ -60,56 +72,56 @@
                         <image>
                             <Image url="@ImageIcon/translate (2).png" />
                         </image>
-                  <effect>
-                     <Lighting>
-                        <bumpInput>
-                           <Shadow />
-                        </bumpInput>
-                        <light>
-                           <Light.Distant />
-                        </light>
-                     </Lighting>
-                  </effect>
+                        <effect>
+                            <Lighting>
+                                <bumpInput>
+                                    <Shadow />
+                                </bumpInput>
+                                <light>
+                                    <Light.Distant />
+                                </light>
+                            </Lighting>
+                        </effect>
                     </ImageView>
                 </graphic>
             </Button>
-         <effect>
-            <Lighting>
-               <bumpInput>
-                  <Shadow />
-               </bumpInput>
-               <light>
-                  <Light.Distant>
-                     <color>
-                        <Color red="0.2869931757450104" green="0.5570980906486511" blue="0.8657894730567932" />
-                     </color>
-                  </Light.Distant>
-               </light>
-            </Lighting>
-         </effect>
+            <effect>
+                <Lighting>
+                    <bumpInput>
+                        <Shadow />
+                    </bumpInput>
+                    <light>
+                        <Light.Distant>
+                            <color>
+                                <Color red="0.2869931757450104" green="0.5570980906486511" blue="0.8657894730567932" />
+                            </color>
+                        </Light.Distant>
+                    </light>
+                </Lighting>
+            </effect>
         </ToolBar>
 
     </top>
-   <bottom>
-      <TextField alignment="CENTER" editable="false" opacity="0.89" text="Powered by @OOPFord Team" BorderPane.alignment="CENTER">
-         <font>
-            <Font name="High Tower Text" size="16.0" />
-         </font>
-         <effect>
-            <Lighting>
-               <bumpInput>
-                  <Shadow />
-               </bumpInput>
-               <light>
-                  <Light.Distant>
-                     <color>
-                        <Color red="0.41458576917648315" green="0.6460484862327576" blue="0.928947389125824" />
-                     </color>
-                  </Light.Distant>
-               </light>
-            </Lighting>
-         </effect>
-      </TextField>
-   </bottom>
+    <bottom>
+        <TextField alignment="CENTER" editable="false" opacity="0.89" text="Powered by @OOPFord Team" BorderPane.alignment="CENTER">
+            <font>
+                <Font name="High Tower Text" size="16.0" />
+            </font>
+            <effect>
+                <Lighting>
+                    <bumpInput>
+                        <Shadow />
+                    </bumpInput>
+                    <light>
+                        <Light.Distant>
+                            <color>
+                                <Color red="0.41458576917648315" green="0.6460484862327576" blue="0.928947389125824" />
+                            </color>
+                        </Light.Distant>
+                    </light>
+                </Lighting>
+            </effect>
+        </TextField>
+    </bottom>
 
 </BorderPane>

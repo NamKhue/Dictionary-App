@@ -5,14 +5,15 @@ import com.sun.speech.freetts.VoiceManager;
 
 public class TextToSpeech {
     private static final String VOICENAME = "kevin16";
-    public static void mySpeak(String inputText)
-    {
+
+    public static void mySpeak(String inputText) {
         Voice voice;
         VoiceManager vm = VoiceManager.getInstance();
         voice = vm.getVoice(VOICENAME);
         voice.allocate();
-        try{
+        try {
             voice.speak(inputText);
-        }catch(Exception e){}
+        } catch (Exception e) {
+        }
     }
 }
