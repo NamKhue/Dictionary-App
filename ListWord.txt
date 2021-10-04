@@ -1,22 +1,49 @@
-ant	kien
-baby	em be
-bike	xe dap
-book	sach
-bus	xe bus
-cancel	huy bo
-cancer	ung thu
-car	oto
-cat	meo
-chicken	ga
-complete	hoan thanh
-cup	cup
-dog	cho
-goodbye	tam biet
-hat	mu
-hello	xin chao
-hint	goi y
-like	thich
-love	tinh yeu
-milk	sua
-pull	keo
-train	tàu
+abaca	.
+abaci	.
+abacist	.
+aback	.
+abacterial	.
+abactio	.
+abaction	.
+abactus	.
+abacus	.
+abacuses	.
+abaddon	.
+abaft	.
+abalienate	.
+abalienated	.
+abalienates	.
+abalienating	.
+abalienation	.
+abalone	.
+abalones	.
+abampere	.
+abandon	.
+abandon call	.
+abandoned	.
+abandoner	.
+abandoners	.
+abandoning	.
+abandonment	.
+abandonments	.
+abandons	.
+abapikal	.
+abarticular	.
+abas	.
+abase	.
+abased	.
+abasement	.
+abasements	.
+abases	.
+abash	.
+abashed	.
+abashes	.
+abashing	.
+abashment	.
+abashments	.
+abasia	.
+abasic	.
+abasing	.
+abask	.
+abatable	.
+abatardissement	.

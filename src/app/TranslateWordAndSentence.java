@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 
 import javax.imageio.ImageTranscoder;
+import javax.xml.soap.Text;
 import java.awt.image.BufferedImage;
 
 public class TranslateWordAndSentence {

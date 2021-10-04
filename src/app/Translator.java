@@ -44,11 +44,8 @@ public class Translator {
       JSONObject subJSON1 = (JSONObject) data1.get(0);
       JSONArray data2 = (JSONArray) subJSON1.get("entries");
       JSONObject subJSON2 = (JSONObject) data2.get(0);
-      System.out.println(subJSON2);
       JSONArray dataDefine = (JSONArray) subJSON2.get("senses");
       JSONObject subJSON3 = (JSONObject) dataDefine.get(0);
-
-
       // Get pronunciation
       JSONArray dataAudio = (JSONArray) subJSON2.get("pronunciations");
       JSONObject OBJAudio = (JSONObject)dataAudio.get(0);
@@ -60,15 +57,12 @@ public class Translator {
       // get others of Explain
       if (subJSON3.get("subsenses") != null) {
         subDefine.append("\t(-) Sub Definition:");
-        System.out.println("Có subsense!");
         JSONArray array = (JSONArray) subJSON3.get("subsenses");
         for (int i = 0; i < array.size(); i++) {
           JSONObject subExplain = (JSONObject) array.get(i);
           JSONArray subArray = (JSONArray) subExplain.get("definitions");
           subDefine.append("\n\t+) SubDefinition - "+i+": "+subArray.get(0));
         }
-      } else {
-        System.out.println("Không có subsense!");
       }
       Object definition = data4.get(0);
       return "- "+inputWord.toUpperCase()+"\n(*) Pronunciation: "+resPronunciation+"\n\n(*) Definition:\n\t- This word means: " + definition + ".\n" +subDefine;
