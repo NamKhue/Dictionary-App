@@ -16,7 +16,6 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 
 import java.io.IOException;
@@ -168,6 +167,7 @@ public class MainWindowController {
 
         if (result.isPresent() && (result.get() == ButtonType.OK)) {
             DictionaryV2.getDictionary().remove(word_to_delete);
+            listView.setItems(DictionaryV2.getDictionary());
         }
     }
 
@@ -195,6 +195,48 @@ public class MainWindowController {
     public void enterSearch(KeyEvent keyEvent) {
         if (keyEvent.getCode() == KeyCode.ENTER) {
             listView.getSelectionModel().selectFirst();
+        }
+    }
+
+    public void removeWord(MouseEvent mouseEvent) {
+        deleteWord(listView.getSelectionModel().getSelectedItem());
+    }
+
+    @FXML
+    public void showEditWordDialog() {
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.initOwner(mainBorderPane.getScene().getWindow());
+        dialog.setTitle("Add New Word");
+        dialog.setHeaderText("Use this dialog to add a new Word");
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("editWord.fxml"));
+        try {
+            dialog.getDialogPane().setContent(fxmlLoader.load());
+
+        } catch (IOException e) {
+            System.out.println("Couldn't load the dialog");
+            e.printStackTrace();
+            return;
+        }
+
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+        Optional<ButtonType> result = dialog.showAndWait();
+
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            editWordController controller = fxmlLoader.getController();
+
+            Word selectedWord = listView.getSelectionModel().getSelectedItem();
+            Word editedWord = controller.editProcess(selectedWord);
+
+            if (editedWord != null) {
+                DictionaryV2.sortDir();
+                listView.getSelectionModel().select(editedWord);
+                listView.setItems(DictionaryV2.getDictionary());
+
+            } else {
+                showNewWordDialog();
+            }
         }
     }
 }

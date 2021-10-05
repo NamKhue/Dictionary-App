@@ -19,7 +19,6 @@ public class TranslateWordAndSentence {
     public void translate(ActionEvent actionEvent) throws Exception {
         String wordTarget = wordTargetArea.getText().toLowerCase().trim();
         wordExplainArea.setText(GoogleTranslate.googleTranslate(wordTarget));
-
     }
 
 
