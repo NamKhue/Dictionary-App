@@ -42,6 +42,10 @@
     -fx-background-color: #1098ad;
 }
 
+#comeback,#translateButton {
+    -fx-background-color: #3498db;
+}
+
 /**
 This work remove border of text area
  */

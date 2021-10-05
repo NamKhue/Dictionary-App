@@ -37,21 +37,15 @@
             </font>
         </TextArea>
         <Button fx:id="translateButton" layoutX="497.0" layoutY="345.0" mnemonicParsing="false" onAction="#translate"
-                prefHeight="60.0" prefWidth="270.0" text="Translate" textFill="#182a39">
+                prefHeight="60.0" prefWidth="270.0" text="  Translate" textFill="#182a39">
             <font>
                 <Font name="Calibri" size="24.0"/>
             </font>
-            <effect>
-                <Lighting bumpInput="$null">
-                    <light>
-                        <Light.Distant>
-                            <color>
-                                <Color red="0.4981481432914734" green="0.6487036943435669" blue="1.0"/>
-                            </color>
-                        </Light.Distant>
-                    </light>
-                </Lighting>
-            </effect>
+            <graphic>
+                <ImageView fitHeight="50.0" fitWidth="50.0">
+                    <Image url="@ImageIcon/translatation.png"/>
+                </ImageView>
+            </graphic>
         </Button>
         <TextArea fx:id="wordExplainArea" editable="false" layoutX="125.0" layoutY="460.0" prefHeight="184.0"
                   prefWidth="1039.0" wrapText="true">
@@ -64,7 +58,7 @@
                 <Font name="System Bold" size="28.0"/>
             </font>
         </Label>
-        <Button fx:id="comeback" layoutX="9.0" layoutY="14.0" mnemonicParsing="false">
+        <Button fx:id="comeback" layoutX="9.0" layoutY="14.0" mnemonicParsing="false" text=" Back">
             <graphic>
                 <ImageView fitHeight="40.0" fitWidth="40.0">
                     <image>
