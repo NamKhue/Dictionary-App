@@ -71,7 +71,7 @@ public class MainWindowController {
                 .addListener(
                         ((observable, oldValue, newValue) -> {
                             flWordTarget.setPredicate(
-                                    p -> p.getWord_target().toLowerCase().contains(newValue.toLowerCase().trim()));
+                                    p -> p.getWord_target().toLowerCase().startsWith(newValue.toLowerCase().trim()));
                         }));
         if (flWordTarget.size() > 0) {
             listView.setItems(flWordTarget);
@@ -185,5 +185,12 @@ public class MainWindowController {
     public void speechEnglish(MouseEvent mouseEvent) {
         String selectedWord = listView.getSelectionModel().getSelectedItem().getWord_target();
         TextToSpeech.mySpeak(selectedWord);
+    }
+
+    @FXML
+    public void enterSearch(KeyEvent keyEvent) {
+        if (keyEvent.getCode() == KeyCode.ENTER) {
+            listView.getSelectionModel().selectFirst();
+        }
     }
 }

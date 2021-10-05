@@ -42,3 +42,7 @@ This work remove border of text area
     -fx-padding: 10px;
     -fx-background-radius: 50%;
 }
+
+#mainBorderPane {
+    -fx-background-color: white;
+}

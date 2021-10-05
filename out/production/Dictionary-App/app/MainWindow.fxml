@@ -1,66 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
-
-<BorderPane fx:id="mainBorderPane" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.MainWindowController">
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<BorderPane fx:id="mainBorderPane" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/11.0.2"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.MainWindowController">
     <center>
-        <Pane style="-fx-background-color: white">
-            <TextArea fx:id="itemDetailsTextArea" editable="false" wrapText="true">
+        <HBox>
+
+            <TextArea fx:id="itemDetailsTextArea" editable="false" maxHeight="-Infinity" maxWidth="-Infinity"
+                      prefHeight="700.0" prefWidth="1120.0" wrapText="true">
                 <font>
-                    <Font size="20.0" />
+                    <Font size="20.0"/>
                 </font>
             </TextArea>
-            <Button fx:id="speech" accessibleRole="IMAGE_VIEW" layoutX="652.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#speechEnglish">
-                <graphic>
-                    <ImageView fitHeight="30.0" fitWidth="30.0">
-                        <image>
-                            <Image url="@ImageIcon/speaker-filled-audio-tool.png" />
-                        </image>
-                    </ImageView>
-                </graphic>
-            </Button>
 
-        </Pane>
+
+        </HBox>
 
     </center>
     <left>
         <GridPane BorderPane.alignment="CENTER">
             <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints maxHeight="25.4" minHeight="10.0" prefHeight="22.4" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="88.4" minHeight="10.0" prefHeight="88.4" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="25.4" minHeight="10.0" prefHeight="22.4" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="88.4" minHeight="10.0" prefHeight="88.4" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
             </rowConstraints>
             <children>
-                <ListView fx:id="listView" onKeyPressed="#handleKeyPressed" prefHeight="195.0" prefWidth="100.0" style="-fx-font-size: 20" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="2">
+                <ListView fx:id="listView" onKeyPressed="#handleKeyPressed" prefHeight="195.0" prefWidth="100.0"
+                          style="-fx-font-size: 20" GridPane.columnIndex="0" GridPane.columnSpan="2"
+                          GridPane.rowIndex="1" GridPane.rowSpan="2">
                 </ListView>
-                <TextField fx:id="textSearch" prefHeight="60.0" prefWidth="181.0" GridPane.columnSpan="2">
+                <TextField fx:id="textSearch" prefHeight="60.0" prefWidth="181.0" GridPane.columnSpan="2"
+                           onKeyPressed="#enterSearch">
                     <font>
-                        <Font size="16.0" />
+                        <Font size="16.0"/>
                     </font>
                 </TextField>
             </children>
         </GridPane>
     </left>
     <top>
-        <ToolBar>
+        <ToolBar prefHeight="0.0" prefWidth="994.0">
             <HBox>
                 <Button mnemonicParsing="false" onAction="#showNewWordDialog">
                     <tooltip>
-                        <Tooltip text="Add a new  word" />
+                        <Tooltip text="Add a new  word"/>
                     </tooltip>
                     <graphic>
                         <ImageView fitHeight="40.0" fitWidth="40.0" translateZ="5.0">
                             <image>
-                                <Image url="@ImageIcon/list-plus.png" />
+                                <Image url="@ImageIcon/list-plus.png"/>
                             </image>
                         </ImageView>
                     </graphic>
@@ -70,30 +68,20 @@
                 <graphic>
                     <ImageView fitHeight="40.0" fitWidth="40.0">
                         <image>
-                            <Image url="@ImageIcon/translate (2).png" />
+                            <Image url="@ImageIcon/translate (2).png"/>
                         </image>
-                        <effect>
-                            <Lighting>
-                                <bumpInput>
-                                    <Shadow />
-                                </bumpInput>
-                                <light>
-                                    <Light.Distant />
-                                </light>
-                            </Lighting>
-                        </effect>
                     </ImageView>
                 </graphic>
             </Button>
             <effect>
                 <Lighting>
                     <bumpInput>
-                        <Shadow />
+                        <Shadow/>
                     </bumpInput>
                     <light>
                         <Light.Distant>
                             <color>
-                                <Color red="0.2869931757450104" green="0.5570980906486511" blue="0.8657894730567932" />
+                                <Color red="0.2869931757450104" green="0.5570980906486511" blue="0.8657894730567932"/>
                             </color>
                         </Light.Distant>
                     </light>
@@ -103,19 +91,20 @@
 
     </top>
     <bottom>
-        <TextField alignment="CENTER" editable="false" opacity="0.89" text="Powered by @OOPFord Team" BorderPane.alignment="CENTER">
+        <TextField alignment="CENTER" editable="false" opacity="0.89" text="Powered by @OOPFord Team"
+                   BorderPane.alignment="CENTER">
             <font>
-                <Font name="High Tower Text" size="16.0" />
+                <Font name="High Tower Text" size="16.0"/>
             </font>
             <effect>
                 <Lighting>
                     <bumpInput>
-                        <Shadow />
+                        <Shadow/>
                     </bumpInput>
                     <light>
                         <Light.Distant>
                             <color>
-                                <Color red="0.41458576917648315" green="0.6460484862327576" blue="0.928947389125824" />
+                                <Color red="0.41458576917648315" green="0.6460484862327576" blue="0.928947389125824"/>
                             </color>
                         </Light.Distant>
                     </light>
@@ -123,5 +112,25 @@
             </effect>
         </TextField>
     </bottom>
+
+    <right>
+
+
+        <Button fx:id="speech" accessibleRole="IMAGE_VIEW" layoutX="728.0" layoutY="14.0"
+                mnemonicParsing="false"
+                onMouseClicked="#speechEnglish">
+            <graphic>
+                <ImageView fitHeight="30.0" fitWidth="30.0">
+                    <image>
+                        <Image url="@ImageIcon/speaker-filled-audio-tool.png"/>
+                    </image>
+                </ImageView>
+            </graphic>
+            <cursor>
+                <Cursor fx:constant="OPEN_HAND"/>
+            </cursor>
+        </Button>
+
+    </right>
 
 </BorderPane>
