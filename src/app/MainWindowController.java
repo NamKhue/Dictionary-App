@@ -16,12 +16,14 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 
 import java.io.IOException;
 import java.util.Optional;
 
 public class MainWindowController {
+
     private ObservableList<Word> data =
             FXCollections.observableArrayList(DictionaryV2.getDictionary());
     @FXML
@@ -113,6 +115,8 @@ public class MainWindowController {
                         return cell;
                     }
                 });
+
+
     }
 
     @FXML
