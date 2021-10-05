@@ -47,3 +47,5 @@ abasing	.
 abask	.
 abatable	.
 abatardissement	.
+rainbow	.
+train	.
