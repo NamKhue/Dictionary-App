@@ -56,7 +56,6 @@ public class Translator {
             StringBuilder subDefine = new StringBuilder();
             // getExample of main meaning
             JSONArray dataExample = (JSONArray) subJSON3.get("examples");
-            subDefine.append("\n\tExample:");
             if(dataExample!=null){
                 for (int e = 0; e < dataExample.size(); e++) {
                     JSONObject exp = (JSONObject) dataExample.get(e);
@@ -77,6 +76,7 @@ public class Translator {
                     subDefine.append("\n\t+) SubDefinition - " + i + ": " + subArray.get(0));
 
                     if (subExampleArray != null) {
+                        subDefine.append("\n\tExample:");
                         for (int k = 0; k < subExampleArray.size(); k++) {
                             JSONObject example = (JSONObject) subExampleArray.get(k);
 
