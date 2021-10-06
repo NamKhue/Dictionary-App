@@ -1,4 +1,3 @@
-academic	.
 accept	.
 access	.
 accident	.
