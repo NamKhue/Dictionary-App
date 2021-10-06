@@ -17,7 +17,7 @@
                     <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" x="50.0" y="6.0">
                             <image>
-                                <Image url="@ImageIcon/speaker-filled-audio-tool.png"/>
+                                <Image url="@ImageIcon/colorLoud.png"/>
                             </image>
                         </ImageView>
                     </graphic>
@@ -91,12 +91,16 @@
                 <ListView fx:id="listView" onKeyPressed="#handleKeyPressed" prefHeight="195.0" prefWidth="100.0"
                           style="-fx-font-size: 20" GridPane.columnIndex="0" GridPane.columnSpan="2"
                           GridPane.rowIndex="1" GridPane.rowSpan="2">
+                    <cursor>
+                        <Cursor fx:constant="OPEN_HAND"/>
+                    </cursor>
                 </ListView>
                 <TextField fx:id="textSearch" onKeyPressed="#enterSearch" prefHeight="60.0" prefWidth="181.0"
                            GridPane.columnSpan="2">
                     <font>
                         <Font size="16.0"/>
                     </font>
+
                 </TextField>
             </children>
         </GridPane>
