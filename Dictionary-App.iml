@@ -13,5 +13,6 @@
     <orderEntry type="library" exported="" name="freetts1" level="project" />
     <orderEntry type="library" exported="" name="jsapi" level="project" />
     <orderEntry type="library" exported="" name="json-simple-1.1" level="project" />
+    <orderEntry type="library" name="jsapi1" level="project" />
   </component>
 </module>
