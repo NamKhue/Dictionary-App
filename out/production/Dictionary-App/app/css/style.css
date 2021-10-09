@@ -12,7 +12,7 @@
     -fx-background-color: #2c70b1;
 }
 
-#bottomBar{
+#bottomBar {
     -fx-text-fill: white;
 }
 
@@ -35,8 +35,14 @@
 }
 
 #addWord, #buttonSwitch {
-    -fx-text-fill: #2c70b1;
-    -fx-font-size:18px;
+    -fx-text-fill: black;
+    -fx-font-size: 18px;
+
+}
+
+#addWord:hover, #buttonSwitch:hover {
+    -fx-background-color: #ced4da;
+
 }
 
 #addWord {
@@ -47,8 +53,32 @@
     -fx-background-color: #fff;
 }
 
-#comeback,#translateButton {
+#comeback, #translateButton {
     -fx-background-color: #3498db;
+}
+
+#speechSearch {
+    -fx-cursor: hand;
+    -fx-border-radius: 50%;
+    -fx-padding: 8px;
+    -fx-background-radius: 50%;
+    -fx-background-color: white;
+}
+
+
+#micButton, #sound, #sound2 {
+    -fx-cursor: hand;
+    -fx-border-radius: 50%;
+    -fx-padding: 4px;
+    -fx-background-radius: 50%;
+    -fx-background-color: white;
+}
+
+#micButton:hover, #sound:hover, #speechSearch:hover, #sound2:hover {
+    -fx-background-color: #ced4da;
+}
+
+#sound {
 }
 
 /**

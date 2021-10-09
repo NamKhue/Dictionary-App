@@ -14,5 +14,7 @@
     <orderEntry type="library" exported="" name="jsapi" level="project" />
     <orderEntry type="library" exported="" name="json-simple-1.1" level="project" />
     <orderEntry type="library" name="jsapi1" level="project" />
+    <orderEntry type="library" name="java-flac-encoder-0.3.8" level="project" />
+    <orderEntry type="library" name="java-google-speech-api-V2.1" level="project" />
   </component>
 </module>

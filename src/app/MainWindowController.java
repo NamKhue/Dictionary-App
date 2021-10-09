@@ -2,6 +2,8 @@ package app;
 
 import app.base.DictionaryV2;
 import app.base.Word;
+import com.darkprograms.speech.recognizer.GSpeechResponseListener;
+import com.darkprograms.speech.recognizer.GoogleResponse;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -12,19 +14,25 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.util.Callback;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Optional;
 
-public class MainWindowController {
+public class MainWindowController implements GSpeechResponseListener {
 
     private ObservableList<Word> data =
             FXCollections.observableArrayList(DictionaryV2.getDictionary());
+    FilteredList<Word> flWordTarget = new FilteredList<>(data, p -> true);
+
     @FXML
     private ListView<Word> listView;
     @FXML
@@ -37,10 +45,40 @@ public class MainWindowController {
     private ContextMenu listContextMenu;
     @FXML
     private Button buttonSwitch;
+    @FXML
+    private ToggleButton speechSearch;
+    private final int widthToggleBut = 22;
+    private final int heightToggleBut = 22;
+    //
+//    public static final Microphone mic = new Microphone(FLACFileWriter.FLAC);
+//    public static GSpeechDuplex duplex = new GSpeechDuplex("AIzaSyBOti4mM-6x9WDnZIjIeyEU21OpBXqWBgw");
+    Image recordImage;
+
+    {
+        try {
+            recordImage = new Image(new FileInputStream("src/app/ImageIcon/voice-recorder.png"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    Image stopRecord;
+
+    {
+        try {
+            stopRecord = new Image(new FileInputStream("src/app/ImageIcon/voice.png"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void initialize() {
         listContextMenu = new ContextMenu();
         MenuItem deleteWordMenu = new MenuItem("Delete");
+        ImageView stopRecordView = new ImageView(stopRecord);
+        stopRecordView.setFitWidth(widthToggleBut);
+        stopRecordView.setFitHeight(heightToggleBut);
+        speechSearch.setGraphic(stopRecordView);
         deleteWordMenu.setOnAction(
                 new EventHandler<ActionEvent>() {
                     @Override
@@ -64,24 +102,7 @@ public class MainWindowController {
                                 }
                             }
                         });
-        FilteredList<Word> flWordTarget = new FilteredList<>(data, p -> true);
 
-        textSearch.setPromptText("Search here");
-        textSearch
-                .textProperty()
-                .addListener(
-                        ((observable, oldValue, newValue) -> {
-                            flWordTarget.setPredicate(
-                                    p -> p.getWord_target().toLowerCase().startsWith(newValue.toLowerCase().trim()));
-                        }));
-        if (flWordTarget.size() > 0) {
-            listView.setItems(flWordTarget);
-        } else {
-            listView.getItems().setAll();
-        }
-
-        listView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-        listView.getSelectionModel().selectFirst();
 
         listView.setCellFactory(
                 new Callback<ListView<Word>, ListCell<Word>>() {
@@ -108,22 +129,37 @@ public class MainWindowController {
                                                 cell.setContextMenu(null);
                                             } else {
                                                 cell.setContextMenu(listContextMenu);
+
                                             }
                                         });
 
                         return cell;
                     }
                 });
-
+        textSearch.setPromptText("Search here");
+        textSearch
+                .textProperty()
+                .addListener(
+                        ((observable, oldValue, newValue) -> {
+                            flWordTarget.setPredicate(
+                                    p -> p.getWord_target().toLowerCase().startsWith(newValue.toLowerCase().trim()));
+                        }));
+        if (flWordTarget.size() > 0) {
+            listView.setItems(flWordTarget);
+        } else {
+            listView.getItems().setAll();
+        }
+        listView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 
     }
 
     @FXML
     public void showNewWordDialog() {
+
         Dialog<ButtonType> dialog = new Dialog<>();
         dialog.initOwner(mainBorderPane.getScene().getWindow());
-        dialog.setTitle("Add New Word");
-        dialog.setHeaderText("Use this dialog to add a new Word");
+        dialog.setTitle("Add new word");
+        dialog.setHeaderText("Use this dialog to add word");
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("Dialog.fxml"));
         try {
@@ -144,7 +180,15 @@ public class MainWindowController {
 
             Word newWord = controller.processResults();
             if (newWord != null) {
-                listView.setItems(DictionaryV2.getDictionary());
+
+                data = DictionaryV2.getDictionary();
+                if (flWordTarget.size() > 0) {
+                    flWordTarget = data.filtered(p -> true);
+                    listView.setItems(flWordTarget);
+                } else {
+                    listView.getItems().setAll();
+                }
+
                 listView.getSelectionModel().select(newWord);
             } else {
                 showNewWordDialog();
@@ -167,7 +211,14 @@ public class MainWindowController {
 
         if (result.isPresent() && (result.get() == ButtonType.OK)) {
             DictionaryV2.getDictionary().remove(word_to_delete);
-            listView.setItems(DictionaryV2.getDictionary());
+            data = DictionaryV2.getDictionary();
+            if (flWordTarget.size() > 0) {
+                flWordTarget = data.filtered(p -> true);
+                listView.setItems(flWordTarget);
+            } else {
+                listView.getItems().setAll();
+            }
+
         }
     }
 
@@ -198,16 +249,18 @@ public class MainWindowController {
         }
     }
 
+    @FXML
     public void removeWord(MouseEvent mouseEvent) {
         deleteWord(listView.getSelectionModel().getSelectedItem());
     }
+
 
     @FXML
     public void showEditWordDialog() {
         Dialog<ButtonType> dialog = new Dialog<>();
         dialog.initOwner(mainBorderPane.getScene().getWindow());
-        dialog.setTitle("Add New Word");
-        dialog.setHeaderText("Use this dialog to add a new Word");
+        dialog.setTitle("Edit Word");
+        dialog.setHeaderText("Use this dialog to edit a new Word");
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("editWord.fxml"));
         try {
@@ -231,12 +284,29 @@ public class MainWindowController {
 
             if (editedWord != null) {
                 DictionaryV2.sortDir();
+                data = DictionaryV2.getDictionary();
+                if (flWordTarget.size() > 0) {
+                    flWordTarget = data.filtered(p -> true);
+                    listView.setItems(flWordTarget);
+                } else {
+                    listView.getItems().setAll();
+                }
                 listView.getSelectionModel().select(editedWord);
-                listView.setItems(DictionaryV2.getDictionary());
 
             } else {
-                showNewWordDialog();
+                showEditWordDialog();
             }
         }
+    }
+
+    @FXML
+    public void searchBySpeech(MouseEvent mouseEvent) {
+        speechToText.speechSearch(speechSearch, textSearch, recordImage, stopRecord, widthToggleBut, heightToggleBut);
+    }
+
+
+    @Override
+    public void onResponse(GoogleResponse googleResponse) {
+
     }
 }
