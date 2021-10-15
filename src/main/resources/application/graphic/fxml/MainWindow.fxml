@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane fx:id="mainBorderPane" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="features.controller.MainWindowController">
+   <center>
+      <VBox fx:id="scroll">
+         <ToolBar style="-fx-background-color: white">
+
+            <Button fx:id="speech" accessibleRole="IMAGE_VIEW" layoutX="728.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#speechEnglish" text=" Speak">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" x="50.0" y="6.0">
+                     <image>
+                        <Image url="@../ImageIcon/color_loud.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="editWord" accessibleRole="IMAGE_VIEW" layoutX="728.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#showEditWordDialog" text=" Edit">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0">
+                     <image>
+                        <Image url="@../ImageIcon/edit_word.png" />
+                     </image>
+
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+
+            </Button>
+            <Button fx:id="deleteWord" accessibleRole="IMAGE_VIEW" layoutX="728.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#removeWord" text=" Delete" visible="true">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0">
+                     <image>
+                        <Image url="@../ImageIcon/delete.png" />
+                     </image>
+
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+
+            </Button>
+         </ToolBar>
+
+         <TextArea fx:id="itemDetailsTextArea" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600" prefWidth="1120.0" wrapText="true">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </TextArea>
+
+
+      </VBox>
+
+   </center>
+   <left>
+      <Pane BorderPane.alignment="CENTER">
+
+         <ListView fx:id="listView" layoutY="38.0" onKeyPressed="#handleKeyPressed" prefHeight="636.0" prefWidth="195.0" style="-fx-font-size: 20">
+            <cursor>
+               <Cursor fx:constant="OPEN_HAND" />
+            </cursor>
+         </ListView>
+
+
+         <TextField fx:id="textSearch" onKeyPressed="#enterSearch" prefHeight="32.0" prefWidth="196.0" GridPane.columnSpan="2">
+            <font>
+               <Font size="20.0" />
+            </font>
+
+         </TextField>
+
+<!--         <ToggleButton fx:id="speechSearch" layoutX="149.0" layoutY="2.0" onMouseClicked="#searchBySpeech" prefHeight="24.0" prefWidth="24.0">-->
+<!--         </ToggleButton>-->
+      </Pane>
+   </left>
+   <top>
+      <ToolBar fx:id="topBar" prefHeight="0.0" prefWidth="994.0">
+         <HBox>
+            <Button fx:id="addWord" mnemonicParsing="false" onAction="#showNewWordDialog" prefHeight="60.0" prefWidth="150.0" text="Add word">
+               <tooltip>
+                  <Tooltip text="Add a new  word" />
+               </tooltip>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" translateZ="5.0">
+                     <image>
+                        <Image url="@../ImageIcon/add_word.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </HBox>
+         <Button fx:id="buttonSwitch" mnemonicParsing="false" prefHeight="60.0" prefWidth="148.0" text=" Translate">
+            <graphic>
+               <ImageView fitHeight="40.0" fitWidth="40.0">
+                  <image>
+                     <Image url="@../ImageIcon/translate_sentence.png" />
+                  </image>
+               </ImageView>
+            </graphic>
+         </Button>
+         <Button fx:id="modeLight" mnemonicParsing="false" prefHeight="60.0" prefWidth="152.0" text="" translateX="800.0">
+            <graphic>
+               <ImageView fitHeight="40.0" fitWidth="40.0" translateX="-40.0">
+                  <image>
+                     <Image fx:id="modeImage" url="@../ImageIcon/lightMode.png" />
+                  </image>
+               </ImageView>
+            </graphic>
+         </Button>
+      </ToolBar>
+
+   </top>
+   <bottom>
+      <TextField fx:id="bottomBar" alignment="CENTER" editable="false" opacity="0.89" text="Powered by @OOPFord Team" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="High Tower Text" size="16.0" />
+         </font>
+
+      </TextField>
+   </bottom>
+
+
+</BorderPane>
