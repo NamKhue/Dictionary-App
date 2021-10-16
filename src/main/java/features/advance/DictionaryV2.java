@@ -3,16 +3,14 @@ package features.advance;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Iterator;
+import java.util.Scanner;
 
 public class DictionaryV2 {
   private static DictionaryV2 instance = new DictionaryV2();
@@ -86,21 +84,49 @@ public class DictionaryV2 {
 
   public void LoadDictionary() throws IOException {
     dictionary = FXCollections.observableArrayList();
-    Path path = Paths.get(filename);
-    BufferedReader br = Files.newBufferedReader(path);
-    try {
-      String line = null;
-      while ((line = br.readLine()) != null) {
-        line = line.trim().toLowerCase();
-        String[] separated_line = line.split("\t");
-        dictionary.add(new Word(separated_line[0], separated_line[1]));
-      }
-      DictionaryV2.sortDir();
-    } catch (IOException e) {
-      e.printStackTrace();
-    } finally {
-      if (br != null) {
-        br.close();
+    //    Path path = Paths.get(filename);
+    //    BufferedReader br = Files.newBufferedReader(path);
+    //    try {
+    //      String line = null;
+    //      while ((line = br.readLine()) != null) {
+    //        line = line.trim().toLowerCase();
+    //        String[] separated_line = line.split("\t");
+    //        dictionary.add(new Word(separated_line[0], separated_line[1]));
+    //      }
+    //      DictionaryV2.sortDir();
+    //    } catch (IOException e) {
+    //      e.printStackTrace();
+    //    } finally {
+    //      if (br != null) {
+    //        br.close();
+    //      }
+    //    }
+    File inFile = new File("src/main/resources/data/anhviet109K.txt");
+    FileReader fileReader = new FileReader(inFile);
+    FileInputStream fileInputStream = new FileInputStream(inFile);
+    Scanner scanner = new Scanner(fileInputStream);
+
+    int t = 0;
+    StringBuffer b = new StringBuffer();
+    String wordTarget = new String();
+    String wordExplain = new String();
+    while (scanner.hasNextLine()) {
+      String a = scanner.nextLine();
+      if (t == 0) {
+        String[] list = a.split(" ");
+        wordTarget = list[0];
+        t++;
+      } else if (!a.isEmpty()) {
+        b.append(a);
+        b.append("\n");
+
+      } else if (a.isEmpty()) {
+        wordExplain = b.toString();
+        b = new StringBuffer();
+        t = 0;
+        dictionary.add(new Word(wordTarget, wordExplain));
+        wordExplain = new String();
+        wordTarget = new String();
       }
     }
   }
@@ -111,15 +137,31 @@ public class DictionaryV2 {
 
   public void storeTodoItems() throws IOException {
 
-    Path path = Paths.get(filename);
+    //    Path path = Paths.get(filename);
+    //    BufferedWriter bw = Files.newBufferedWriter(path);
+    //    try {
+    //      Iterator<Word> iter = dictionary.iterator();
+    //      while (iter.hasNext()) {
+    //        Word word = iter.next();
+    //        bw.write(String.format("%s\t%s", word.getWord_target(), word.getWord_explain()));
+    //        bw.newLine();
+    //      }
+    //    } finally {
+    //      if (bw != null) {
+    //        bw.close();
+    //      }
+    //    }
+    Path path = Paths.get("src/main/resources/data/anhviet109K.txt");
     BufferedWriter bw = Files.newBufferedWriter(path);
     try {
-      Iterator<Word> iter = dictionary.iterator();
-      while (iter.hasNext()) {
-        Word word = iter.next();
-        bw.write(String.format("%s\t%s", word.getWord_target(), word.getWord_explain()));
+      for (int i = 0; i < dictionary.size(); i++) {
+        bw.write(dictionary.get(i).getWord_target());
+        bw.newLine();
+        bw.write(dictionary.get(i).getWord_explain());
+        bw.newLine();
         bw.newLine();
       }
+
     } finally {
       if (bw != null) {
         bw.close();
