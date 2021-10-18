@@ -14,7 +14,11 @@ import java.util.Optional;
 public class DialogController {
   @FXML private TextField wordTarget;
   @FXML private TextArea explainArea;
-
+  
+  /**
+   * processResults func: process for add word.
+   * @return new word
+   */
   public Word processResults() {
 
     String word_target = wordTarget.getText().trim().toLowerCase();
