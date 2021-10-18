@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DictionaryCommandline {
+  // Show all words from dictionary.
   public static void showAllWords() {
     StringBuilder result = new StringBuilder();
     result.append("NO   | English        | Vietnamese").append("\n");
@@ -37,6 +38,7 @@ public class DictionaryCommandline {
     DictionaryManagement.dictionaryLookup();
   }
 
+  //Find the word user want to search.
   public static void dictionarySearcher() {
     ArrayList<Word> prefixList = new ArrayList<>();
     Scanner scanner_ = new Scanner(System.in);

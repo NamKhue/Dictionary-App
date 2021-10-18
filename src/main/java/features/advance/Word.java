@@ -36,6 +36,7 @@ public class Word implements Comparable<Word> {
     return this.word_target;
   }
 
+  // Function is used to compare two words.
   @Override
   public int compareTo(Word o) {
     return this.word_target.compareTo(o.getWord_target());

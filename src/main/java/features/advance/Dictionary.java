@@ -53,6 +53,13 @@ public class Dictionary {
         });
   }
 
+  /**
+   *
+   * @param wordToSearch .
+   * @param l is the index of first element.
+   * @param r is the index of last element.
+   * @return the word user want to search.
+   */
   public Word binarySearch(String wordToSearch, int l, int r) {
     if (r < l) return null;
     int mid = l + (r - l) / 2;
@@ -64,6 +71,13 @@ public class Dictionary {
     return binarySearch(wordToSearch, mid + 1, r);
   }
 
+  /**
+   *
+   * @param wordToSearch .
+   * @param l is the index of first element.
+   * @param r is the index of last element.
+   * @return position of word user want to look up.
+   */
   public int binaryLookUp(String wordToSearch, int l, int r) {
     if (r < l) return -1;
     int mid = l + (r - l) / 2;
@@ -83,6 +97,7 @@ public class Dictionary {
     return listWordTarget;
   }
 
+  // Function is used to get Dictionary.
   public static Dictionary getInstance() {
     return instance;
   }
