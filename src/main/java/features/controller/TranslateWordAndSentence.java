@@ -49,6 +49,9 @@ public class TranslateWordAndSentence {
     }
   }
   
+  /**
+   * initialize func: initialize micro buttons
+   */
   public void initialize() {
     ImageView stopRecordView = new ImageView(stopRecord);
     stopRecordView.setFitWidth(26);
@@ -56,22 +59,37 @@ public class TranslateWordAndSentence {
     this.micButton.setGraphic(stopRecordView);
   }
   
+  /**
+   * translate func: translate words/sentences.
+   * @param actionEvent
+   * @throws Exception
+   */
   @FXML
   public void translate(ActionEvent actionEvent) throws Exception {
     String wordTarget = wordTargetArea.getText().toLowerCase().trim();
     wordExplainArea.setText(GoogleTranslate.translate(wordTarget));
   }
   
-  
+  /**
+   * getComeback func: return to main window.
+   */
   public Button getComeback() {
     return comeback;
   }
   
+  /**
+   * onMic func: click micro button then user speak, don't need to type.
+   * @param mouseEvent
+   */
   @FXML
   public void onMic(MouseEvent mouseEvent) {
     SpeechToText.speechSearch(micButton, wordTargetArea, recordImage, stopRecord, 26, 26);
   }
   
+  /**
+   * speak func: click to pronounce target word.
+   * @param actionEvent
+   */
   @FXML
   public void speak(ActionEvent actionEvent) {
     String selectedWord = wordTargetArea.getText();
@@ -82,6 +100,10 @@ public class TranslateWordAndSentence {
     }
   }
   
+  /**
+   * speak func: click to pronounce explain word.
+   * @param actionEvent
+   */
   @FXML
   public void speakEplain(ActionEvent actionEvent) {
     String selectedWord = wordExplainArea.getText();

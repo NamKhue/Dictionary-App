@@ -3,35 +3,33 @@ package features.advance;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Iterator;
+import java.util.Scanner;
 
 public class DictionaryV2 {
   private static DictionaryV2 instance = new DictionaryV2();
   private static String filename = "src/main/resources/data/ListWord.txt";
-
+  
   private static ObservableList<Word> dictionary;
-
+  
   public ObservableList<Word> getWordsList() {
     return dictionary;
   }
-
+  
   public static DictionaryV2 getInstance() {
     return instance;
   }
-
+  
   public static int getSize() {
     return dictionary.size();
   }
-
+  
   private static int searchIndexToInsert(int st, int end, Word word_add) {
     if (end < st) return st;
     int mid = st + (end - st) / 2;
@@ -42,18 +40,18 @@ public class DictionaryV2 {
     if (compare > 0) return searchIndexToInsert(st, mid - 1, word_add);
     return searchIndexToInsert(mid + 1, end, word_add);
   }
-
+  
   public static void sortDir() {
     Collections.sort(
-        dictionary,
-        new Comparator<Word>() {
-          @Override
-          public int compare(Word o1, Word o2) {
-            return o1.getWord_target().compareTo(o2.getWord_target());
-          }
-        });
+            dictionary,
+            new Comparator<Word>() {
+              @Override
+              public int compare(Word o1, Word o2) {
+                return o1.getWord_target().compareTo(o2.getWord_target());
+              }
+            });
   }
-
+  
   public Word binarySearch(String wordToSearch, int l, int r) {
     if (r < l) return null;
     int mid = l + (r - l) / 2;
@@ -64,7 +62,7 @@ public class DictionaryV2 {
     if (compare > 0) return binarySearch(wordToSearch, l, mid - 1);
     return binarySearch(wordToSearch, mid + 1, r);
   }
-
+  
   public int binaryLookUp(String wordToSearch, int l, int r) {
     if (r < l) return -1;
     int mid = l + (r - l) / 2;
@@ -75,7 +73,7 @@ public class DictionaryV2 {
     if (compare > 0) return binaryLookUp(wordToSearch, l, mid - 1);
     return binaryLookUp(wordToSearch, mid + 1, r);
   }
-
+  
   public ArrayList<String> getWordTarget() {
     ArrayList<String> listWordTarget = new ArrayList<>();
     for (int i = 0; i < Dictionary.getSize(); i++) {
@@ -83,50 +81,77 @@ public class DictionaryV2 {
     }
     return listWordTarget;
   }
-
+  
   public void LoadDictionary() throws IOException {
     dictionary = FXCollections.observableArrayList();
-    Path path = Paths.get(filename);
-    BufferedReader br = Files.newBufferedReader(path);
-    try {
-      String line = null;
-      while ((line = br.readLine()) != null) {
-        line = line.trim().toLowerCase();
-        String[] separated_line = line.split("\t");
-        dictionary.add(new Word(separated_line[0], separated_line[1]));
-      }
-      DictionaryV2.sortDir();
-    } catch (IOException e) {
-      e.printStackTrace();
-    } finally {
-      if (br != null) {
-        br.close();
+    File inFile = new File("src/main/resources/data/anhviet109K.txt");
+    FileReader fileReader = new FileReader(inFile);
+    FileInputStream fileInputStream = new FileInputStream(inFile);
+    Scanner scanner = new Scanner(fileInputStream);
+    
+    int t = 0;
+    StringBuffer b = new StringBuffer();
+    String wordTarget = new String();
+    String wordExplain = new String();
+    while (scanner.hasNextLine()) {
+      String a = scanner.nextLine();
+      if (t == 0) {
+        String[] list = a.split(" ");
+        wordTarget = list[0];
+        t++;
+      } else if (!a.isEmpty()) {
+        b.append(a);
+        b.append("\n");
+        
+      } else if (a.isEmpty()) {
+        wordExplain = b.toString();
+        b = new StringBuffer();
+        t = 0;
+        dictionary.add(new Word(wordTarget, wordExplain));
+        wordExplain = new String();
+        wordTarget = new String();
       }
     }
   }
-
+  
   public static ObservableList<Word> getDictionary() {
     return dictionary;
   }
-
+  
   public void storeTodoItems() throws IOException {
-
-    Path path = Paths.get(filename);
+    
+    //    Path path = Paths.get(filename);
+    //    BufferedWriter bw = Files.newBufferedWriter(path);
+    //    try {
+    //      Iterator<Word> iter = dictionary.iterator();
+    //      while (iter.hasNext()) {
+    //        Word word = iter.next();
+    //        bw.write(String.format("%s\t%s", word.getWord_target(), word.getWord_explain()));
+    //        bw.newLine();
+    //      }
+    //    } finally {
+    //      if (bw != null) {
+    //        bw.close();
+    //      }
+    //    }
+    Path path = Paths.get("src/main/resources/data/anhviet109K.txt");
     BufferedWriter bw = Files.newBufferedWriter(path);
     try {
-      Iterator<Word> iter = dictionary.iterator();
-      while (iter.hasNext()) {
-        Word word = iter.next();
-        bw.write(String.format("%s\t%s", word.getWord_target(), word.getWord_explain()));
+      for (int i = 0; i < dictionary.size(); i++) {
+        bw.write(dictionary.get(i).getWord_target());
+        bw.newLine();
+        bw.write(dictionary.get(i).getWord_explain());
+        bw.newLine();
         bw.newLine();
       }
+      
     } finally {
       if (bw != null) {
         bw.close();
       }
     }
   }
-
+  
   public static void push(Word word) {
     int indexToAdd = searchIndexToInsert(0, dictionary.size() - 1, word);
     if (indexToAdd >= 0 && indexToAdd <= dictionary.size()) {
