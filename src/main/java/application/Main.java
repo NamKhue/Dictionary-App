@@ -33,8 +33,8 @@ public class Main extends Application {
     Button buttonSwitchToTranslate = controllerMainWindow.getButtonSwitch();
     TranslateWordAndSentence controllerTranslate = fxmlLoader2.getController();
     Button buttonSwitchToMainWindow = controllerTranslate.getComeback();
-    scene2 = new Scene(subroot, 1280, 720);
-    scene1 = new Scene(root, 1280, 720);
+    scene2 = new Scene(subroot, 1000, 650);
+    scene1 = new Scene(root, 1000, 650);
     primaryStage
         .getIcons()
         .add(
