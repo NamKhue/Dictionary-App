@@ -19,8 +19,8 @@ public class Translator {
     final String word_id = word.toLowerCase();
     final String restUrl = "https://od-api.oxforddictionaries.com:443/api/v2/entries/" + language + "/" + word_id + "?" + "fields=" + fields + "&strictMatch=" + strictMatch;
     //TODO: replace with your own features id and features key
-    final String app_id = "9548fee2";
-    final String app_key = "632fd65dc1c839a648cc18da5371e192";
+    final String app_id = "ce69d489";
+    final String app_key = "a756f04124d8f6c91d8aa77ec429f277";
     try {
       URL url = new URL(restUrl);
       HttpsURLConnection urlConnection = (HttpsURLConnection) url.openConnection();
@@ -47,7 +47,6 @@ public class Translator {
       JSONArray dataDefine = (JSONArray) subJSON2.get("senses");
       JSONObject subJSON3 = (JSONObject) dataDefine.get(0);
 
-
       // Get pronunciation
       JSONArray dataAudio = (JSONArray) subJSON2.get("pronunciations");
       JSONObject OBJAudio = (JSONObject)dataAudio.get(0);
@@ -58,18 +57,30 @@ public class Translator {
       StringBuilder subDefine = new StringBuilder();
       // get others of Explain
       if (subJSON3.get("subsenses") != null) {
-        subDefine.append("\t(-) Sub Definition:");
         JSONArray array = (JSONArray) subJSON3.get("subsenses");
         for (int i = 0; i < array.size(); i++) {
           JSONObject subExplain = (JSONObject) array.get(i);
           JSONArray subArray = (JSONArray) subExplain.get("definitions");
-          subDefine.append("\n\t+) SubDefinition - "+i+": "+subArray.get(0));
+          JSONArray subExampleArray = (JSONArray) subExplain.get("examples");
+  
+          if (i != 0) {
+            subDefine.append("\n");
+          }
+          subDefine.append("\n\t+) " + subArray.get(0));
+  
+          if (subExampleArray != null) {
+            subDefine.append("\n\t+) Example:");
+            for (int k = 0; k < subExampleArray.size(); k++) {
+              JSONObject example = (JSONObject) subExampleArray.get(k);
+      
+              subDefine.append("\n\t- " + example.get("text"));
+            }
+          }
         }
       } else {
-//        System.out.println("Không có subsense!");
       }
       Object definition = data4.get(0);
-      return "- "+inputWord.toUpperCase()+"\n(*) Pronunciation: "+resPronunciation+"\n\n(*) Definition:\n\t- This word means: " + definition + ".\n" +subDefine;
+      return inputWord.toUpperCase() + "\t" + resPronunciation + "\nDefinition: \n- " + definition + ".\t" +subDefine;
     } catch (IOException e) {
       e.printStackTrace();
     }

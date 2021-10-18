@@ -1,9 +1,11 @@
 package application;
 
-import features.advance.DictionaryCommandline;
+import features.base.DictionaryCommandline;
 
 public class MainCommandLine {
+    
     public static void main(String[] args) {
         DictionaryCommandline.dictionaryAdvanced();
     }
+    
 }

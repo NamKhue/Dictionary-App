@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DictionaryCommandline {
+  
   // Function is used to show all words in dictionary.
   public static void showAllWords() {
     StringBuilder result = new StringBuilder();
@@ -26,6 +27,7 @@ public class DictionaryCommandline {
     }
     System.out.println(result);
   }
+  
   // Function is used to find a word includes this sub word.
   public static void dictionarySearcher() {
     Scanner scan = new Scanner(System.in);
@@ -59,11 +61,45 @@ public class DictionaryCommandline {
     showAllWords();
   }
   
-  public static void dictionaryAdvanced() {
+  private static void showMenu() {
     DictionaryManagement.insertFromFile();
     DictionaryManagement.dictionaryExportToFile();
-    DictionaryCommandline.showAllWords();
-    dictionarySearcher();
-    DictionaryManagement.dictionaryLookup();
+  
+    Scanner input = new Scanner(System.in);
+    int choice;
+    
+    do {
+      System.out.println("=============== Menu ===============");
+      System.out.println("1. Show list of words.");
+      System.out.println("2. Search by a part of word.");
+      System.out.println("3. Search a whole word.");
+      System.out.println("4. Exit.");
+      System.out.print("Please choose from 1 to 4:  ");
+      
+      choice = Integer.parseInt(input.nextLine());
+      System.out.print("\n");
+      System.out.println("=============== Executing ===============");
+      System.out.print("\n");
+  
+      switch (choice) {
+        case 1:
+          DictionaryCommandline.showAllWords();
+          break;
+        case 2:
+          dictionarySearcher();
+          break;
+        case 3:
+          DictionaryManagement.dictionaryLookup();
+          break;
+        default:
+          System.out.println("Bye bye !");
+          break;
+      }
+      System.out.print("\n");
+    } while (choice < 4);
+  }
+  
+  public static void dictionaryAdvanced() {
+    showMenu();
   }
 }

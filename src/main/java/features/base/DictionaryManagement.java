@@ -6,10 +6,12 @@ import java.util.Scanner;
 
 public class DictionaryManagement {
   public static Scanner scanner = new Scanner(System.in);
+  
   // insert a word from command line to dictionary.
   public static void insertFromCommandLine() {
     boolean t = false;
     int numberOfElem = 0;
+    
     //To enter the number of elements
     do {
       System.out.println("Enter the number of words you want to add: ");
@@ -40,7 +42,7 @@ public class DictionaryManagement {
   // insert a word from file text to dictionary.
   public static void insertFromFile() {
     try {
-      FileReader fileReader = new FileReader(new File("src/main/resources/data/anhviet109K.txt"));
+      FileReader fileReader = new FileReader(new File("src/main/resources/data/ListWordForVerCMD.txt"));
       BufferedReader reader = new BufferedReader(fileReader);
       
       String line = null;
@@ -73,7 +75,7 @@ public class DictionaryManagement {
   // Function is used to export data to file text.
   public static void dictionaryExportToFile() {
     try {
-      BufferedWriter writerFile = new BufferedWriter(new FileWriter("src/main/resources/data/anhviet109K.txt"));
+      BufferedWriter writerFile = new BufferedWriter(new FileWriter("src/main/resources/data/ListWordForVerCMD.txt"));
       for (int i = 0; i < Dictionary.getDictionary().size(); i++) {
         writerFile.write(Dictionary.getDictionary().get(i).getWord_target().trim()+"\t"+Dictionary.getDictionary().get(i).getWord_explain().trim()+"\n");
       }
