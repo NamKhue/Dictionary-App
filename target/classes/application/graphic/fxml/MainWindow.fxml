@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane fx:id="mainBorderPane" prefHeight="650.0" prefWidth="1000.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="features.controller.MainWindowController">
+   <center>
+      <VBox fx:id="scroll" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="540.0" prefWidth="769.0">
+         <ToolBar prefHeight="62.0" prefWidth="729.0" style="-fx-background-color: white">
+
+            <Button fx:id="speech" accessibleRole="IMAGE_VIEW" layoutX="728.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#speechEnglish" prefHeight="50.0" prefWidth="110.0" text=" Speak">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="20.0" x="50.0" y="6.0">
+                     <image>
+                        <Image url="@../ImageIcon/color_loud.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="editWord" accessibleRole="IMAGE_VIEW" layoutX="728.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#showEditWordDialog" prefHeight="50.0" prefWidth="110.0" text=" Edit">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0">
+                     <image>
+                        <Image url="@../ImageIcon/edit_word.png" />
+                     </image>
+
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+               <font>
+                  <Font size="14.0" />
+               </font>
+
+            </Button>
+            <Button fx:id="deleteWord" accessibleRole="IMAGE_VIEW" layoutX="728.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#removeWord" prefHeight="50.0" prefWidth="110.0" text=" Delete" visible="true">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0">
+                     <image>
+                        <Image url="@../ImageIcon/delete.png" />
+                     </image>
+
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+               <font>
+                  <Font size="14.0" />
+               </font>
+
+            </Button>
+         </ToolBar>
+
+         <TextArea fx:id="itemDetailsTextArea" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="496.0" prefWidth="758.0" wrapText="true">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </TextArea>
+
+
+      </VBox>
+
+   </center>
+   <left>
+      <Pane prefHeight="549.0" prefWidth="228.0" BorderPane.alignment="CENTER">
+
+         <ListView id="listView" fx:id="listView" layoutX="6.0" layoutY="67.0" onKeyPressed="#handleKeyPressed" prefHeight="474.0" prefWidth="216.0" style="-fx-font-size: 20; -fx-border-radius: 20">
+            <cursor>
+               <Cursor fx:constant="OPEN_HAND" />
+            </cursor>
+         </ListView>
+
+
+         <TextField fx:id="textSearch" layoutX="6.0" layoutY="9.0" onKeyPressed="#enterSearch" prefHeight="49.0" prefWidth="216.0" GridPane.columnSpan="2">
+            <font>
+               <Font size="20.0" />
+            </font>
+
+         </TextField>
+
+<!--         <ToggleButton fx:id="speechSearch" layoutX="149.0" layoutY="2.0" onMouseClicked="#searchBySpeech" prefHeight="24.0" prefWidth="24.0">-->
+<!--         </ToggleButton>-->
+      </Pane>
+   </left>
+   <top>
+      <ToolBar fx:id="topBar" prefHeight="0.0" prefWidth="994.0">
+         <AnchorPane prefHeight="64.0" prefWidth="980.0">
+            <children>
+               <Button fx:id="addWord" layoutY="2.0" mnemonicParsing="false" onAction="#showNewWordDialog" prefHeight="60.0" prefWidth="150.0" text="Add word">
+                  <tooltip>
+                     <Tooltip text="Add a new  word" />
+                  </tooltip>
+                  <graphic>
+                     <ImageView fitHeight="33.0" fitWidth="32.0" translateZ="5.0">
+                        <image>
+                           <Image url="@../ImageIcon/add_word.png" />
+                        </image>
+                     </ImageView>
+                  </graphic>
+                  <font>
+                     <Font size="10.0" />
+                  </font>
+               </Button>
+               <Button fx:id="buttonSwitch" layoutX="160.0" layoutY="2.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="148.0" text=" Translate">
+                  <graphic>
+                     <ImageView fitHeight="40.0" fitWidth="40.0">
+                        <image>
+                           <Image url="@../ImageIcon/translate_sentence.png" />
+                        </image>
+                     </ImageView>
+                  </graphic>
+                  <font>
+                     <Font size="10.0" />
+                  </font>
+               </Button>
+               <Button fx:id="modeLight" layoutX="832.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="148.0" text="">
+                  <graphic>
+                     <ImageView fitHeight="40.0" fitWidth="40.0" translateX="-40.0">
+                        <image>
+                           <Image fx:id="modeImage" url="@../ImageIcon/lightMode.png" />
+                        </image>
+                     </ImageView>
+                  </graphic>
+               </Button>
+            </children>
+         </AnchorPane>
+      </ToolBar>
+
+   </top>
+   <bottom>
+      <TextField fx:id="bottomBar" alignment="CENTER" editable="false" opacity="0.89" text="Powered by @OOPFord Team" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Segoe UI" size="16.0" />
+         </font>
+
+      </TextField>
+   </bottom>
+
+
+</BorderPane>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<Pane minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="features.controller.TranslateWordAndSentence">
+   <children>
+      <Label layoutX="16.0" layoutY="109.0" prefHeight="184.0" prefWidth="106.0" text="Word:" textFill="#91bdff">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="0.461476594209671" green="0.6722697615623474" blue="0.8447368144989014" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect>
+      </Label>
+      <TextArea fx:id="wordTargetArea" layoutX="130.0" layoutY="112.0" prefHeight="184.0" prefWidth="843.0" wrapText="true">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextArea>
+      <Button fx:id="translateButton" layoutX="399.0" layoutY="325.0" mnemonicParsing="false" onAction="#translate" prefHeight="60.0" prefWidth="270.0" text="Translate" textFill="#182a39">
+         <font>
+            <Font name="Roboto" size="24.0" />
+         </font>
+<!--         <graphic>-->
+<!--            <ImageView fitHeight="50.0" fitWidth="50.0">-->
+<!--               <Image url="@graphic/ImageIcon/translate_logo.png" />-->
+<!--            </ImageView>-->
+<!--         </graphic>-->
+      </Button>
+      <TextArea fx:id="wordExplainArea" editable="false" layoutX="130.0" layoutY="422.0" prefHeight="184.0" prefWidth="843.0" wrapText="true">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextArea>
+      <Label layoutX="14.0" layoutY="422.0" prefHeight="184.0" prefWidth="111.0" text="Explain: " textFill="#3e6cb2">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="comeback" layoutX="9.0" layoutY="14.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="132.0" text="Back">
+<!--         <graphic>-->
+<!--            <ImageView fitHeight="40.0" fitWidth="40.0">-->
+<!--               <image>-->
+<!--                  <Image url="@graphic/ImageIcon/backArrow.png" />-->
+<!--               </image>-->
+<!--            </ImageView>-->
+<!--         </graphic>-->
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="218.0" layoutY="28.0" prefHeight="40.0" prefWidth="557.0" text="TRANSLATE WORD OR SENTENCES" textFill="#3a55af">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <ToggleButton fx:id="micButton" layoutX="225.0" layoutY="249.0" mnemonicParsing="false" onMouseClicked="#onMic" prefHeight="40.0" prefWidth="40.0" />
+      <Button fx:id="sound" layoutX="150.0" layoutY="249.0" mnemonicParsing="false" onAction="#speak" prefHeight="40.0" prefWidth="40.0">
+         <graphic>
+
+            <ImageView fitHeight="26" fitWidth="26" layoutX="225.0" layoutY="254.0">
+               <Image url="@../ImageIcon/loud_speaker.png" />
+            </ImageView>
+         </graphic>
+
+      </Button>
+      <Button fx:id="sound2" layoutX="150.0" layoutY="556.0" mnemonicParsing="false" onAction="#speakEplain" prefHeight="40.0" prefWidth="40.0">
+         <graphic>
+
+            <ImageView fitHeight="26" fitWidth="26" layoutX="150.0" layoutY="254.0">
+               <Image url="@../ImageIcon/loud_speaker.png" />
+            </ImageView>
+         </graphic>
+
+      </Button>
+   </children>
+</Pane>
