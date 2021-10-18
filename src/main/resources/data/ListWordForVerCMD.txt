@@ -922,6 +922,7 @@ duty	sự tôn kính, kính trọng; bồn phận, trách nhiệm
 dying	sự chết
 each	mỗi
 each other	nhau, lẫn nhau
+each other	nhau, lẫn nhau
 ear	tai
 early	sớm
 earn	kiếm
@@ -1214,6 +1215,7 @@ formerly	trước đây, thuở xưa
 formula	công thức, thể thức, cách thức
 fortune	sự giàu có, sự thịnh vượng
 forward	về tương lai, sau này ở phía trước, tiến về
+forward	ở phía trước, tiến về phía trước
 found	tìm, tìm thấy
 foundation	sự thành lập, sự sáng lập; tổ chức
 frame	cấu trúc, hệ thống; dàn xếp, bố trí
@@ -1221,6 +1223,7 @@ free	miễn phí, tự do, giải phóng, trả tự do
 freedom	sự tự do; nền tự do
 freely	tự do, thoải mái
 freeze	đóng băng, đông lạnh
+freeze	sự đông lạnh, sự giá lạnh; làm đông, làm đóng băng
 frequent	thường xuyên
 frequently	thường xuyên
 fresh	tươi, tươi tắn
@@ -1640,6 +1643,7 @@ kill	giết, tiêu diệt
 killing	sự giết chóc, sự tàn sát
 kilogram	kilôgam
 kilometre	kilômet
+kilometre	kilômet
 kind	loại, giống; tử tế, có lòng tốt
 kindly	tử tế, tốt bụng
 kindness	sự tử tế, lòng tốt
@@ -1727,6 +1731,7 @@ literature	văn chương, văn học
 litre	lít
 little	nhỏ, bé, chút ít; không nhiều; một chút
 live	sống, hoạt động
+live	sống
 lively	sống, sinh động
 living	sống, đang sống
 load	gánh nặng, vật nặng; chất, chở
@@ -1794,6 +1799,7 @@ manufacturing	sự sản xuất, sự chế tạo
 many	nhiều
 map	bản đồ
 march	tháng ba
+march	diễu hành, hành quân; cuộc hành quân, cuộc diễu hành
 mark	dấu, nhãn, nhãn mác; đánh dấu, ghi dấu
 market	chợ, thị trường
 marketing	ma-kết-tinh
@@ -1866,6 +1872,7 @@ minority	phần ít, thiểu số
 minute	phút
 mirror	gương
 miss	lỡ, trượt; sự trượt, sự thiếu vắng
+miss	cô gái, thiếu nữ
 missing	vắng, thiếu, thất lạc
 mistake	lỗi, sai lầm, lỗi lầm; phạm lỗi, phạm sai lầm
 mistaken	sai lầm, hiểu lầm
@@ -1905,6 +1912,7 @@ moving	động, hoạt động
 much	nhiều, lắm
 mud	bùn
 multiply	nhân lên, làm tăng lên nhiều lần; sinh sôi nảy nở
+mum	mẹ
 mum	mẹ
 murder	tội giết người, tội ám sát; giết người, ám sát
 muscle	cơ, bắp thịt
@@ -2124,6 +2132,7 @@ pen	bút
 pence	đồng xu
 pencil	bút chì
 penny	đồng xu
+penny	số tiền
 pension	tiền trợ cấp, lương hưu
 people	dân tộc, dòng giống; người
 pepper	hạt tiêu, cây ớt
@@ -2168,6 +2177,7 @@ pill	viên thuốc
 pilot	phi công
 pin	đinh ghim; ghim., kẹp
 pink	màu hồng; hoa cẩm chướng, tình trạng tốt, hoàn hảo
+pint	panh
 pint	panh
 pipe	ống dẫn
 pitch	sân ; đầu hắc ín
@@ -2477,7 +2487,7 @@ resist	chống lại, phản đổi, kháng cự
 resistance	sự chống lại, sự phản đối, sự kháng cự
 resolve	quyết định, kiên quyết
 resort	kế sách, phương kế
-Resource	tài nguyên; kế sách, thủ đoạn
+resource	tài nguyên; kế sách, thủ đoạn
 respect	sự kính trọng, sự lễ phép; tôn trọng, kính trọng, khâm phục
 respond	hưởng ứng, phản ứng lại, trả lời
 response	sự trả lời, câu trả lời, sự hưởng ứng, sự đáp lại
@@ -2653,6 +2663,7 @@ shame	sự xấu hổ, thẹn thùng, sự ngượng
 shape	hình, hình dạng, hình thù
 shaped	có hình dáng được chỉ rõ
 share	đóng góp, tham gia, chia sẻ; phần đóng góp, phần tham gia, phần chia sẻ
+sharp	sắc, nhọn, bén
 sharply	sắc, nhọn, bén
 shave	cạo
 she	nó, bà ấy, chị ấy, cô ấy...
@@ -3107,6 +3118,7 @@ translate	dịch, biên dịch, phiên dịch
 translation	sự dịch
 transparent	trong suốt; dễ hiểu, sáng sủa
 transport	sự vận chuyển, sự vận tải; phương tiện đi lại
+transport	chuyên chở, vận tải
 trap	đồ đạc, hành lý; bẫy, cạm bãy; bẫy, giữ, chặn lại
 travel	đi lại, đi du lịch, di chuyển; sự đi, những chuyến đi
 traveller	người đi, lữ khách
@@ -3175,19 +3187,19 @@ unexpected	bất ngờ, gây ngạc nhiên
 unexpected, unexpectedly	bất ngờ, đột ngột, gây ngạc nhiên
 unexpectedly	bất ngờ, gây ngạc nhiên
 unfair	gian lận, không công bằng; bất lợi
+unfair, unfairly fair	không đúng, không công bằng, gian lận
 unfairly	gian lận, không công bằng; bất lợi
-forward	ở phía trước, tiến về phía trước
 unfortunate	không may, rủi ro, bất hạnh
 unfortunately	một cách đáng tiếc, một cách không may
 unfriendly	không thân thiện, không có thiện cảm
-freeze	sự đông lạnh, sự giá lạnh; làm đông, làm đóng băng
-unfair, unfairly fair	không đúng, không công bằng, gian lận
 unfriendly friendly	đối địch, không thân thiện
 unhappiness	nỗi buồn, sự bất hạnh
 unhappiness happiness	sự buồn, nỗi buồn
 unhappy	buồn rầu, khốn khổ
+unhappy happy	buồn rầu, khổ sở
 uniform	đồng phục; đều, giống nhau, đồng dạng
 unimportant	khônh quan trọng, không trọng đại
+unimportant important	không quan trọng
 union	liên hiệp, sự đoàn kết, sự hiệp nhất
 unique	độc nhất vô nhị
 unit	liên kết, hợp nhất, hợp lại, kết thân
@@ -3195,9 +3207,9 @@ united	liên minh, đoàn kết, chung, thống nhất
 universe	vũ trụ
 university	trường đại học
 unkind	độc ác, tàn nhẫn
-kilometre	kilômet
-sharp	sắc, nhọn, bén
+unkind kind	không tử tế, không tốt
 unknown	không biết
+unknown know	không biết, không được nhận ra
 unless	trừ phi, trừ khi, nếu không
 unlike	khác, không giống
 unlike like	không giống, khác
@@ -3207,9 +3219,21 @@ unload	cất gánh nặng, dỡ hàng
 unload load	tháo, dỡ
 unlucky	không gặp may, bất hạnh
 unlucky lucky	không gặp may, không may mắn
+unnecessary	không cần thiết, không mong muốn
+unnecessary necessary	không cần thiết, không mong muốn
+unpleasant	không dễ chịu, khó chịu, khó ưa
+unpleasant pleasant	không dễ chịu, khó chịu
 unreasonable	vô lý
+unreasonable reasonable	vô lý, vượt quá giới hạn của cái hợp lý
+unsteady	không chắc, không ổn định
+unsteady steady	không đúng mực, không vững, không chắc
 unsuccessful	không thành công, thất bại
+unsuccessful successful	không thành công, không thành đạt
+untidy	không gọn gàng, không ngăn nắp, lộn xộn
+untidy tidy	không gọn gàng, không ngăn nắp, lộn xộn
+until	trước khi, cho đến khi
 unusual	hiếm, khác thường, đáng chú ý
+unusual, unusually usual	hiếm, khác thường
 unusually	cực kỳ, khác thường
 unwilling	không sẵn lòng, miễn cưỡng
 unwilling, unwillingly willing	không muốn, không có ý định
@@ -3305,6 +3329,7 @@ wear	mặc, mang, đeo
 weather	thời tiết
 web	mạng, lưới
 wedding	lễ cưới, hôn lễ
+wednesday	thứ 4
 week	tuần, tuần lễ
 weekend	cuối tuần
 weekly	mỗi tuần một lần, hàng tuần
@@ -3313,30 +3338,6 @@ weight	trọng lượng
 welcome	chào mừng, hoan nghênh
 well	tốt, giỏi; ôi, may quá!
 well known	nổi tiếng, được nhiều người biết đến
-live	sống
-march	diễu hành, hành quân; cuộc hành quân, cuộc diễu hành
-miss	cô gái, thiếu nữ
-mum	mẹ
-unnecessary	không cần thiết, không mong muốn
-each other	nhau, lẫn nhau
-penny	số tiền
-unhappy happy	buồn rầu, khổ sở
-unimportant important	không quan trọng
-unkind kind	không tử tế, không tốt
-unknown know	không biết, không được nhận ra
-unnecessary necessary	không cần thiết, không mong muốn
-unpleasant	không dễ chịu, khó chịu, khó ưa
-pint	panh
-unpleasant pleasant	không dễ chịu, khó chịu
-unreasonable reasonable	vô lý, vượt quá giới hạn của cái hợp lý
-unsteady	không chắc, không ổn định
-unsteady steady	không đúng mực, không vững, không chắc
-unsuccessful successful	không thành công, không thành đạt
-untidy	không gọn gàng, không ngăn nắp, lộn xộn
-untidy tidy	không gọn gàng, không ngăn nắp, lộn xộn
-until	trước khi, cho đến khi
-unusual, unusually usual	hiếm, khác thường
-wednesday	thứ 4
 west	phía tây, theo phía tây, về hướng tây
 western	về phía tây, của phía tây
 wet	ướt, ẩm ướt
@@ -3372,12 +3373,14 @@ willingly	sẵn lòng, tự nguyện
 willingness	sự bằng lòng, sự vui lòng
 win	chiếm, đọat, thu được
 wind	quấn lại, cuộn lại
+wind	gió
 wind sth up	lên dây, quấn, giải quyết
 window	cửa sổ
 wine	rượu, đồ uống
 wing	cánh, sự bay, sự cất cánh
 winner	người thắng cuộc
 winning	đang dành thắng lợi, thắng cuộc
+winter	mùa đông
 wire	dây
 wise	khôn ngoan, sáng suốt, thông thái
 wish	ước, mong muốn; sự mong ước, lòng mong muốn
@@ -3426,9 +3429,6 @@ young	trẻ, trẻ tuổi, thanh niên
 your	của bạn
 yours	cái của bạn
 yours sincerely	bạn chân thành của anh, chị..
-transport	chuyên chở, vận tải
-wind	gió
-winter	mùa đông
 yourself	tự anh, tự chị, chính anh, chính mày, tự mày, tự mình
 youth	tuổi trẻ, tuổi xuân, tuổi thanh niên, tuổi niên thiếu
 zero number	số không

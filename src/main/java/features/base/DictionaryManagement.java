@@ -116,7 +116,12 @@ public class DictionaryManagement {
    */
   public static void fixWord(Word word,String new_target,String new_explain){
     int pos = Collections.binarySearch(Dictionary.getDictionary(),word);
-    Dictionary.getDictionary().get(pos).setWord_target(new_target);
-    Dictionary.getDictionary().get(pos).setWord_explain(new_explain);
+    if (pos > -1) {
+      Dictionary.getDictionary().get(pos).setWord_target(new_target);
+      Dictionary.getDictionary().get(pos).setWord_explain(new_explain);
+      System.out.println("Modified word successfully!");
+    } else {
+      System.out.println("This word isn't existed!");
+    }
   }
 }
