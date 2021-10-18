@@ -59,7 +59,6 @@ public class Translator {
       // get others of Explain
       if (subJSON3.get("subsenses") != null) {
         subDefine.append("\t(-) Sub Definition:");
-//        System.out.println("Có subsense!");
         JSONArray array = (JSONArray) subJSON3.get("subsenses");
         for (int i = 0; i < array.size(); i++) {
           JSONObject subExplain = (JSONObject) array.get(i);

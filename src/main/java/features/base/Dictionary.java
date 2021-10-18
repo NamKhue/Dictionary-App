@@ -47,19 +47,32 @@ public class Dictionary {
     if (compare > 0) return searchIndexToInsert(st, mid - 1, word_add);
     return searchIndexToInsert(mid + 1, end, word_add);
   }
-  
+
+  /**
+   *
+   * @param wordToSearch .
+   * @param l is index of first element.
+   * @param r is index of last element.
+   * @return word user want to search.
+   */
   public static Word binarySearch(String wordToSearch, int l, int r) {
     if (r < l) return null;
     int mid = l + (r - l) / 2;
     Word word = dictionary.get(mid);
     String current = word.getWord_target();
-    
     int compare = current.compareTo(wordToSearch);
     if (compare == 0) return word;
     if (compare > 0) return binarySearch(wordToSearch, l, mid - 1);
     return binarySearch(wordToSearch, mid + 1, r);
   }
-  
+
+  /**
+   *
+   * @param subWord .
+   * @param l is index of first element.
+   * @param r is index of last element.
+   * @return word includes this sub word.
+   */
   public static Word binarySearchSubword(String subWord, int l, int r) {
     if (r < l) return null;
     int mid = l + (r - l) / 2;

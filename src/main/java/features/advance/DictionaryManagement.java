@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class DictionaryManagement {
   public static Scanner scanner = new Scanner(System.in);
 
+  // Insert a word to dictionary.
   public static void insertFromCommandLine() {
     boolean t = false;
     int numberOfElem = 0;
@@ -39,9 +40,10 @@ public class DictionaryManagement {
     }
   }
 
+  // Insert data from file into Dictionary.
   public static void insertFromFile() {
     try {
-      FileReader fileReader = new FileReader(new File("src/main/resources/data/anhviet109K.txt"));
+      FileReader fileReader = new FileReader(new File("src/main/resources/data/ListWord.txt"));
       BufferedReader reader = new BufferedReader(fileReader);
 
       String line = null;
@@ -57,6 +59,7 @@ public class DictionaryManagement {
     }
   }
 
+ // Provide meaning of word user want to look up.
   public static void dictionaryLookup() {
     Scanner scanner_ = new Scanner(System.in);
     System.out.println("What is the word that you want to look up?");
@@ -67,10 +70,12 @@ public class DictionaryManagement {
     if (hasWord == null) {
       System.out.println("This word is not in the dictionary");
     } else {
+
       System.out.println(hasWord.getWord_target() + " means: " + hasWord.getWord_explain());
     }
   }
 
+  // Remove the specified word.
   public static void removeWord() {
     Scanner scanner_ = new Scanner(System.in);
     System.out.println("Enter the word you want to delete: ");
@@ -87,6 +92,7 @@ public class DictionaryManagement {
     }
   }
 
+  // Function edit wrong word to correct word.
   public static void correctWord() {
     Scanner scanner_ = new Scanner(System.in);
     System.out.println("Enter the word you want to correct: ");

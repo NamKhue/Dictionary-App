@@ -35,7 +35,8 @@ public class Word implements Comparable<Word> {
   public String toString() {
     return " " + this.word_target + " |= " + this.word_explain;
   }
-  
+
+  //Function is used to compare two words.
   @Override
   public int compareTo(Word o) {
     return this.word_target.compareTo(o.getWord_target());

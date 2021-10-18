@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DictionaryCommandline {
+  // Function is used to show all words in dictionary.
   public static void showAllWords() {
     StringBuilder result = new StringBuilder();
     result.append("NO   | English        | Vietnamese").append("\n");
@@ -25,7 +26,7 @@ public class DictionaryCommandline {
     }
     System.out.println(result);
   }
-  
+  // Function is used to find a word includes this sub word.
   public static void dictionarySearcher() {
     Scanner scan = new Scanner(System.in);
     ArrayList<Word> hintArray = new ArrayList<Word>();
