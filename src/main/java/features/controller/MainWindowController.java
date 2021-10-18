@@ -156,7 +156,7 @@ public class MainWindowController implements GSpeechResponseListener {
     } else {
       listView.getItems().setAll();
     }
-    // listView.getSelectionModel().selectFirst();
+     listView.getSelectionModel().selectFirst();
     listView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
   }
   

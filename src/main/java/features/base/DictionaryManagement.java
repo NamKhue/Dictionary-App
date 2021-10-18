@@ -39,7 +39,7 @@ public class DictionaryManagement {
   
   public static void insertFromFile() {
     try {
-      FileReader fileReader = new FileReader(new File("src/main/java/app/fileDictionary/dictionary.txt"));
+      FileReader fileReader = new FileReader(new File("src/main/resources/data/anhviet109K.txt"));
       BufferedReader reader = new BufferedReader(fileReader);
       
       String line = null;
@@ -70,7 +70,7 @@ public class DictionaryManagement {
   
   public static void dictionaryExportToFile() {
     try {
-      BufferedWriter writerFile = new BufferedWriter(new FileWriter("src/main/java/app/fileDictionary/dictionary.txt"));
+      BufferedWriter writerFile = new BufferedWriter(new FileWriter("src/main/resources/data/anhviet109K.txt"));
       for (int i = 0; i < Dictionary.getDictionary().size(); i++) {
         writerFile.write(Dictionary.getDictionary().get(i).getWord_target().trim()+"\t"+Dictionary.getDictionary().get(i).getWord_explain().trim()+"\n");
       }

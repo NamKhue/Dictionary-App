@@ -41,7 +41,7 @@ public class DictionaryManagement {
 
   public static void insertFromFile() {
     try {
-      FileReader fileReader = new FileReader(new File("src/features/fileDictionary/dictionary.txt"));
+      FileReader fileReader = new FileReader(new File("src/main/resources/data/anhviet109K.txt"));
       BufferedReader reader = new BufferedReader(fileReader);
 
       String line = null;
