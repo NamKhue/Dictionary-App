@@ -2,6 +2,7 @@ package features.base;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class DictionaryCommandline {
@@ -147,21 +148,19 @@ public class DictionaryCommandline {
         case 6:
           System.out.println("Which word do you wanna delete?");
           System.out.print("Word:  ");
-          word_target = input.nextLine();
+          word_target = input.nextLine().trim().toLowerCase();
           System.out.print("\n");
   
           hasWord = Dictionary.binarySearch(word_target, 0, Dictionary.getSize() - 1);
           if (hasWord == null) {
             System.out.println("This word isn't existed!");
           } else {
-            Word word = Dictionary.binarySearch(word_target, 0, Dictionary.getSize());
-            int pos = Dictionary.searchIndexToInsert(0, Dictionary.getSize() - 1, word);
-            
+            Word word = Dictionary.binarySearch(word_target, 0, Dictionary.getSize()-1);
+
 //            Dictionary.getDictionary().remove(pos);
 //            System.out.println("Deleted word successfully!");
   
             System.out.println(word);
-            System.out.println(pos);
           }
     
           break;
