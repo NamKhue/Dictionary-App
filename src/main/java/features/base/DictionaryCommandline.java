@@ -1,6 +1,7 @@
 package features.base;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class DictionaryCommandline {
@@ -73,13 +74,19 @@ public class DictionaryCommandline {
       System.out.println("1. Show list of words.");
       System.out.println("2. Search by a part of word.");
       System.out.println("3. Search a whole word.");
-      System.out.println("4. Exit.");
-      System.out.print("Please choose from 1 to 4:  ");
+      System.out.println("4. Add a new word.");
+      System.out.println("5. Modify a word.");
+      System.out.println("6. Delete a word.");
+      System.out.println("7. Exit.");
+      System.out.print("Please choose from 1 to 7:  ");
       
       choice = Integer.parseInt(input.nextLine());
       System.out.print("\n");
       System.out.println("=============== Executing ===============");
       System.out.print("\n");
+  
+      String word_target = "", word_explain = "";
+      Word hasWord;
   
       switch (choice) {
         case 1:
@@ -91,12 +98,79 @@ public class DictionaryCommandline {
         case 3:
           DictionaryManagement.dictionaryLookup();
           break;
+        case 4:
+          System.out.println("Which word do you wanna add?");
+          System.out.print("Word:  ");
+          word_target = input.nextLine();
+          word_target = word_target.trim().toLowerCase();
+          System.out.print("\n");
+  
+          hasWord = Dictionary.binarySearch(word_target, 0, Dictionary.getSize() - 1);
+          if (hasWord == null) {
+            System.out.print("Meaning:  ");
+            word_explain = input.nextLine();
+            word_explain = word_explain.trim().toLowerCase();
+            System.out.print("\n");
+            
+            DictionaryManagement.addWord(new Word(word_target, word_explain));
+            System.out.println("Added word successfully!");
+          } else {
+            System.out.println("This word is existed before!");
+          }
+  
+          break;
+        case 5:
+          System.out.println("Which word do you wanna edit?");
+          System.out.print("Word:  ");
+          word_target = input.nextLine();
+          word_target = word_target.trim().toLowerCase();
+          System.out.print("\n");
+  
+          hasWord = Dictionary.binarySearch(word_target, 0, Dictionary.getSize() - 1);
+          if (hasWord == null) {
+            System.out.println("This word isn't existed!");
+          } else {
+            System.out.print("New word:  ");
+            String new_word_target = input.nextLine();
+            new_word_target = new_word_target.trim().toLowerCase();
+            System.out.print("\n");
+            System.out.print("Meaning:  ");
+            String new_word_explain = input.nextLine();
+            new_word_explain = new_word_explain.trim().toLowerCase();
+            System.out.print("\n");
+            
+            DictionaryManagement.fixWord(hasWord, new_word_target, new_word_explain);
+            System.out.println("Modified word successfully!");
+          }
+          
+          break;
+        case 6:
+          System.out.println("Which word do you wanna delete?");
+          System.out.print("Word:  ");
+          word_target = input.nextLine();
+          System.out.print("\n");
+  
+          hasWord = Dictionary.binarySearch(word_target, 0, Dictionary.getSize() - 1);
+          if (hasWord == null) {
+            System.out.println("This word isn't existed!");
+          } else {
+            Word word = Dictionary.binarySearch(word_target, 0, Dictionary.getSize());
+            int pos = Dictionary.searchIndexToInsert(0, Dictionary.getSize() - 1, word);
+            
+//            Dictionary.getDictionary().remove(pos);
+//            System.out.println("Deleted word successfully!");
+  
+            System.out.println(word);
+            System.out.println(pos);
+          }
+    
+          break;
         default:
           System.out.println("Bye bye !");
           break;
       }
       System.out.print("\n");
-    } while (choice < 4);
+    } while (choice < 7);
   }
   
   public static void dictionaryAdvanced() {
