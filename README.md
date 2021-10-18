@@ -10,7 +10,7 @@
 
 ### 5. Upgrade graphic version 1.0 -> Done (100%)
 
-### 6. Upgrade graphic version 2.0 -> Done (100%)
+### 6. Upgrade graphic version 2.0
 >> Upgrade UI
 > 
 >> Arrange files/packages
