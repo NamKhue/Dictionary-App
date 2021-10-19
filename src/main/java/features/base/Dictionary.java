@@ -47,6 +47,24 @@ public class Dictionary {
     if (compare > 0) return searchIndexToInsert(st, mid - 1, word_add);
     return searchIndexToInsert(mid + 1, end, word_add);
   }
+  
+  /**
+   *
+   * @param wordToSearch .
+   * @param l is the index of first element.
+   * @param r is the index of last element.
+   * @return position of word user want to look up.
+   */
+  public static int binaryLookUp(String wordToSearch, int l, int r) {
+    if (r < l) return -1;
+    int mid = l + (r - l) / 2;
+    Word word = dictionary.get(mid);
+    String current = word.getWord_target();
+    int compare = current.compareTo(wordToSearch);
+    if (compare == 0) return mid;
+    if (compare > 0) return binaryLookUp(wordToSearch, l, mid - 1);
+    return binaryLookUp(wordToSearch, mid + 1, r);
+  }
 
   /**
    *
