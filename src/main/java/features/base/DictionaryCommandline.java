@@ -1,8 +1,6 @@
 package features.base;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class DictionaryCommandline {
@@ -114,6 +112,7 @@ public class DictionaryCommandline {
             System.out.print("\n");
             
             DictionaryManagement.addWord(new Word(word_target, word_explain));
+            DictionaryManagement.dictionaryExportToFile();
             System.out.println("Added word successfully!");
           } else {
             System.out.println("This word is existed before!");
@@ -141,6 +140,7 @@ public class DictionaryCommandline {
             System.out.print("\n");
             
             DictionaryManagement.fixWord(hasWord, new_word_target, new_word_explain);
+            DictionaryManagement.dictionaryExportToFile();
             System.out.println("Modified word successfully!");
           }
           
@@ -151,16 +151,13 @@ public class DictionaryCommandline {
           word_target = input.nextLine().trim().toLowerCase();
           System.out.print("\n");
   
-          hasWord = Dictionary.binarySearch(word_target, 0, Dictionary.getSize() - 1);
-          if (hasWord == null) {
+          int pos = Dictionary.binaryLookUp(word_target, 0, Dictionary.getSize());
+          if (pos < 0) {
             System.out.println("This word isn't existed!");
           } else {
-            Word word = Dictionary.binarySearch(word_target, 0, Dictionary.getSize()-1);
-
-//            Dictionary.getDictionary().remove(pos);
-//            System.out.println("Deleted word successfully!");
-  
-            System.out.println(word);
+            Dictionary.getDictionary().remove(pos);
+            DictionaryManagement.dictionaryExportToFile();
+            System.out.println("Deleted word successfully!");
           }
     
           break;
